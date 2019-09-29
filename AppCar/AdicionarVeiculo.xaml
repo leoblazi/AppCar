@@ -15,7 +15,8 @@
                        FontSize="Medium"/>
                 
                 <Entry Placeholder="Placa EX:ADS-1582"
-                       PlaceholderColor="Gray" BackgroundColor="White"/>
+                       PlaceholderColor="Gray" BackgroundColor="White"
+                       x:Name="txtPlaca"/>                        
                 
                 <Entry Placeholder="Modelo"
                        PlaceholderColor="Gray"
