@@ -10,7 +10,7 @@
             <StackLayout Spacing="20" Padding="20">
                 <Image Source="logocad.png"/>
 
-                <Label Text="Cadastre seu veículo"
+                <Label Text="Cadastre seu veículo!"
                        HorizontalTextAlignment="Center"
                        FontSize="Medium"/>
                 
