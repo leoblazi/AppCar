@@ -16,32 +16,38 @@
                 
                 <Entry Placeholder="Login"
                        PlaceholderColor="Gray"
-                       BackgroundColor="White"/>
+                       BackgroundColor="White"
+                       x:Name="txtCadLogin"/>
                 
                 <Entry Placeholder="Senha"
                        PlaceholderColor="Gray"
                        BackgroundColor="White" 
-                       IsPassword="True"/>
-                
+                       IsPassword="True"
+                       x:Name="txtCadSenha"/>
+
                 <Entry Placeholder="Confirme sua senha" 
                        PlaceholderColor="Gray" 
                        BackgroundColor="White" 
-                       IsPassword="True"/>
-                
+                       IsPassword="True"
+                       x:Name="txtConfSenha"/>                
+
                 <Entry Placeholder="Nome"
                        PlaceholderColor="Gray"
-                       BackgroundColor="White"/>
+                       BackgroundColor="White"
+                       x:Name="txtCadNome"/>
                 
                 <Button Text="Finalizar cadastro"
                         TextColor="White" BackgroundColor="Blue"
                         Clicked="BtnFinalizarCadastro_ClickedAsync"
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="btnFinalizarCad"/>
 
                 <Button Text="Cancelar cadastro"
                         TextColor="White"
                         BackgroundColor="Blue" 
                         Clicked="BtnVoltarCadastro_ClickedAsync"
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="btnCancCadastro"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

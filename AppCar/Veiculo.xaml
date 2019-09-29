@@ -15,7 +15,8 @@
                         TextColor="White" 
                         BackgroundColor="Green" 
                         Clicked="btnGPS_ClickedAsync" 
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="btnIniciarPercurso"/>
 
                 <Label Text="Corsa" 
                        HorizontalTextAlignment="Start"/>
@@ -27,16 +28,19 @@
                 <Button Text="Editar informações deste véiculo" 
                         TextColor="White" BackgroundColor="Blue" 
                         BorderRadius="50"
-                        Clicked="btnEditarVeiculo_ClickedAsync"/>
+                        Clicked="btnEditarVeiculo_ClickedAsync"
+                        x:Name="btnEditarVeiculo"/>
                 <Button Text="Excluir veículo" 
                         TextColor="White" 
                         BackgroundColor="Blue" 
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="btnEditarVeiculo"/>
                 <Button Text="Voltar" 
                         TextColor="White" 
                         BackgroundColor="Blue" 
                         BorderRadius="50" 
-                        Clicked="btnVoltar_ClickedAsync"/>
+                        Clicked="btnVoltar_ClickedAsync"
+                        x:Name="btnVoltar"/>
 
             </StackLayout>
         </ScrollView>

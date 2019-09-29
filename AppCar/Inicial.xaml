@@ -18,43 +18,50 @@
                         TextColor="White" 
                         BackgroundColor="Blue" 
                         Clicked="BtnGerenciarVeiculos_ClickedAsync" 
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="btnListaVeiculos"/>
                 
                 <Button Text="Adicionar veículo" 
                         TextColor="White" 
                         BackgroundColor="Blue" 
                         Clicked="BtnAdicionar_ClickedAsync" 
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="btnAddVeiculo"/>
                 
                 <Button Text="Relatórios" 
                         TextColor="White" 
                         BackgroundColor="Blue" 
                         Clicked="BtnRelatorios_ClickedAsync"
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="btnTelaRelatorio"/>
 
                 <Button Text="Combustível hoje" 
                         TextColor="White" 
                         BackgroundColor="Yellow"
                         Clicked="BtnCombustivel_ClickedAsync" 
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="btnValCombustivel"/>
                 
                 <Button Text="Editar cadastro" 
                         TextColor="Black" 
                         BackgroundColor="Blue" 
                         Clicked="BtnEditar_ClickedAsync" 
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="EditarCadastro"/>
 
                 <Button Text="Dicas para seus veículos" 
                         TextColor="White" 
                         BackgroundColor="Blue" 
                         Clicked="BtnDicas_Clicked" 
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="txtDicas"/>
 
                 <Button Text="Sair" 
                         TextColor="White" 
                         BackgroundColor="Blue" 
                         Clicked="BtnSair_ClickedAsync" 
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="txtDicas"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

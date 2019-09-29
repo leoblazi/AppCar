@@ -13,7 +13,8 @@
                 <Button Text="Finalizar Percurso"
                         TextColor="White" BackgroundColor="Red"
                         Clicked="btnVoltar_Clicked"
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="btnFinalizarPercurso"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

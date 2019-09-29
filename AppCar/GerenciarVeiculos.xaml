@@ -25,7 +25,8 @@
                         TextColor="White" 
                         BackgroundColor="Blue" 
                         BorderRadius="50" 
-                        Clicked="btnVeiculo_ClickedAsync"/>
+                        Clicked="btnVeiculo_ClickedAsync"
+                        x:Name="btnSelecionar1"/>
                 
                 <Label Text="Gol" 
                        HorizontalTextAlignment="Start" 
@@ -37,13 +38,15 @@
                 <Button Text="Ok" 
                         TextColor="White"
                         BackgroundColor="Blue" 
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="btnSelecionar2"/>
                 
                 <Button Text="Voltar" 
                         TextColor="White"
                         BackgroundColor="Blue" 
                         Clicked="btnVoltar_ClickedAsync"
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="btnVoltar"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

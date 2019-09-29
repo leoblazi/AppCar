@@ -17,17 +17,20 @@
                 <Button Text="Alterar login"
                         TextColor="White"
                         BackgroundColor="Blue"
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="btnAlterarLogin"/>
                 
                 <Button Text="Alterar minha senha" 
                         TextColor="White" 
                         BackgroundColor="Blue" 
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="btnAlterarSenha"/>
                 
                 <Button Text="Alterar meu nome" 
                         TextColor="White" 
                         BackgroundColor="Blue" 
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="btnAlterarNome"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

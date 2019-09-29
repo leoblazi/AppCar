@@ -20,23 +20,27 @@
                 
                 <Entry Placeholder="Modelo"
                        PlaceholderColor="Gray"
-                       BackgroundColor="White"/>
+                       BackgroundColor="White"
+                       x:Name="txtModeloVeiculo"/>
                 
                 <Entry Placeholder="Km por litro"
                        PlaceholderColor="Gray"
                        BackgroundColor="White"
-                       IsPassword="True"/>
+                       IsPassword="True"
+                       x:Name="txtKmLitro"/>
                 
                 <Button Text="Cadastrar novo veículo"
                         TextColor="White" BackgroundColor="Blue"
                         BorderRadius="50"
-                        Clicked="btnCadastrarVeiculoAsync"/>
+                        Clicked="btnCadastrarVeiculoAsync"
+                        x:Name="btnCadastrarVeiculo"/>
 
                 <Button Text="Cancelar e voltar"
                         TextColor="White"
                         BackgroundColor="Blue"
                         Clicked="btnVoltarAsync"
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="btnVoltar"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

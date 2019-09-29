@@ -12,7 +12,7 @@
                 <Image Source="logocad.png"/>
                 <Label Text="Valores do combustível hoje" HorizontalTextAlignment="Center"/>
 
-                <Label Text="Etanól"
+                <Label Text="Etanol"
                        HorizontalTextAlignment="Center"
                        FontSize= "Medium"/>
                 <Label Text="R$ 2,69"
@@ -37,13 +37,15 @@
                         TextColor="White" 
                         BackgroundColor="Blue" 
                         BorderRadius="50" 
-                        Clicked="btnAlteraValor_Clicked"/>
+                        Clicked="btnAlteraValor_Clicked"
+                        x:Name="btnAlterarValores"/>
                 
                 <Button Text="Voltar" 
                         TextColor="White" 
                         BackgroundColor="Blue" 
                         BorderRadius="50" 
-                        Clicked="btnVoltar_Clicked"/>
+                        Clicked="btnVoltar_Clicked"
+                        x:Name="btnVoltar"/>
 
             </StackLayout>
         </ScrollView>

@@ -15,22 +15,26 @@
                 
                 <Entry Placeholder="Placa EX:ADS-1582"
                        PlaceholderColor="Gray" 
-                       BackgroundColor="White"/>
+                       BackgroundColor="White"
+                       x:Name="txtInfPlaca"/>
                 
                 <Entry Placeholder="Modelo"
                        PlaceholderColor="Gray"
-                       BackgroundColor="White"/>
+                       BackgroundColor="White"
+                       x:Name="txtInfModelo"/>
                 
                 <Entry Placeholder="Km por litro" 
                        PlaceholderColor="Gray" 
                        BackgroundColor="White" 
-                       IsPassword="True"/>
+                       IsPassword="True"
+                       x:Name="txtInfKml"/>
                 
                 <Button Text="Cancelar e voltar"
                         TextColor="White" 
                         BackgroundColor="Blue"
                         Clicked="btnVoltarClicked"
-                        BorderRadius="50"/>
+                        BorderRadius="50"
+                        x:Name="btnCancelar"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

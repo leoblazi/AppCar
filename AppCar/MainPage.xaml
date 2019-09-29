@@ -16,24 +16,28 @@
             
             <Entry Placeholder="Login" 
                    PlaceholderColor="Gray" 
-                   BackgroundColor="White"/>
+                   BackgroundColor="White"
+                   x:Name="txtUsuario"/>
             
             <Entry Placeholder="Senha" 
                    PlaceholderColor="Gray" 
                    BackgroundColor="White" 
-                   IsPassword="True"/>
+                   IsPassword="True"
+                   x:Name="txtSenha"/>
             
             <Button Text="Entrar"
                     TextColor="White"
                     BackgroundColor="Blue"
                     Clicked="BtnLogin_ClickedAsync"
-                    BorderRadius="50"/>
+                    BorderRadius="50"
+                    x:Name="btnEntrar"/>
             
             <Button Text="Cadastre-se"
                     TextColor="White"
                     BackgroundColor="Blue"
                     Clicked="BtnCadastrar_ClickedAsync"
-                    BorderRadius="50"/>
+                    BorderRadius="50"
+                    x:Name="btnEntrar"/>
         </StackLayout>
     </ScrollView>
 
