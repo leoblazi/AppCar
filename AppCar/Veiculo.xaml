@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppCar.Veiculo">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="20">
+                
+                <Image Source="Logo.png"/>
+                
+                <Button Text="Iniciar Percurso"
+                        TextColor="White" 
+                        BackgroundColor="Green" 
+                        Clicked="btnGPS_ClickedAsync" 
+                        BorderRadius="50"/>
+
+                <Label Text="Corsa" 
+                       HorizontalTextAlignment="Start"/>
+                <Label Text="KM Atual: 35.885 KM" 
+                       HorizontalTextAlignment="Start"/>
+                <Label Text="Placa: LXD-1855" 
+                       HorizontalTextAlignment="Start"/>
+
+                <Button Text="Editar informações deste véiculo" 
+                        TextColor="White" BackgroundColor="Blue" 
+                        BorderRadius="50"
+                        Clicked="btnEditarVeiculo_ClickedAsync"/>
+                <Button Text="Excluir veículo" 
+                        TextColor="White" 
+                        BackgroundColor="Blue" 
+                        BorderRadius="50"/>
+                <Button Text="Voltar" 
+                        TextColor="White" 
+                        BackgroundColor="Blue" 
+                        BorderRadius="50" 
+                        Clicked="btnVoltar_ClickedAsync"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

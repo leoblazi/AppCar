@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppCar.EditarCadastro">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="20">
+                <Image Source="logocad.png"/>
+                
+                <Label Text="usuario, nesta tela você pode editar os seus dados"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Medium"/>
+                
+                <Button Text="Alterar login"
+                        TextColor="White"
+                        BackgroundColor="Blue"
+                        BorderRadius="50"/>
+                
+                <Button Text="Alterar minha senha" 
+                        TextColor="White" 
+                        BackgroundColor="Blue" 
+                        BorderRadius="50"/>
+                
+                <Button Text="Alterar meu nome" 
+                        TextColor="White" 
+                        BackgroundColor="Blue" 
+                        BorderRadius="50"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

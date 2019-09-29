@@ -1,2 +1,2 @@
 # AppCar
-Gerenciamento de veículos
+Modelo de gerenciamento de veículos

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppCar.Inicial"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="20">
+                <Image Source="Logo.png"/>
+                <Label Text="Seja bem-vindo, usuario!" 
+                       HorizontalTextAlignment="Center" 
+                       FontSize="Medium"/>
+                
+                <Button Text="Seus veículos" 
+                        TextColor="White" 
+                        BackgroundColor="Blue" 
+                        Clicked="BtnGerenciarVeiculos_ClickedAsync" 
+                        BorderRadius="50"/>
+                
+                <Button Text="Adicionar veículo" 
+                        TextColor="White" 
+                        BackgroundColor="Blue" 
+                        Clicked="BtnAdicionar_ClickedAsync" 
+                        BorderRadius="50"/>
+                
+                <Button Text="Relatórios" 
+                        TextColor="White" 
+                        BackgroundColor="Blue" 
+                        Clicked="BtnRelatorios_ClickedAsync"
+                        BorderRadius="50"/>
+
+                <Button Text="Combustível hoje" 
+                        TextColor="White" 
+                        BackgroundColor="Yellow"
+                        Clicked="BtnCombustivel_ClickedAsync" 
+                        BorderRadius="50"/>
+                
+                <Button Text="Editar cadastro" 
+                        TextColor="Black" 
+                        BackgroundColor="Blue" 
+                        Clicked="BtnEditar_ClickedAsync" 
+                        BorderRadius="50"/>
+
+                <Button Text="Dicas para seus veículos" 
+                        TextColor="White" 
+                        BackgroundColor="Blue" 
+                        Clicked="BtnDicas_Clicked" 
+                        BorderRadius="50"/>
+
+                <Button Text="Sair" 
+                        TextColor="White" 
+                        BackgroundColor="Blue" 
+                        Clicked="BtnSair_ClickedAsync" 
+                        BorderRadius="50"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppCar.AlterarValorCombustivel">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="20">
+
+                <Image Source="logocad.png"/>
+                <Label Text="Valores do combustível hoje"
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Text="Etanól"
+                       HorizontalTextAlignment="Center" 
+                       FontSize= "Medium"/>
+                <Entry Placeholder="R$ 2,69"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"/>
+
+                <Label Text="Gasolina"
+                       HorizontalTextAlignment="Center"
+                       FontSize= "Medium"/>
+                <Entry Placeholder="R$ 3,78"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"/>
+
+                <Label Text="Diesel"
+                       HorizontalTextAlignment="Center"
+                       FontSize= "Medium"/>
+                <Entry Placeholder="R$ 4,20"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"/>
+
+                <Button Text="Atualizar Valores e salvar"
+                        TextColor="White" BackgroundColor="Blue"
+                        BorderRadius="50" Clicked="btnAtualizarValores_Clicked"/>
+
+                <Button Text="Voltar e Cancelar"
+                        TextColor="White"
+                        BackgroundColor="Blue"
+                        BorderRadius="50"
+                        Clicked="btnVoltar_Clicked"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

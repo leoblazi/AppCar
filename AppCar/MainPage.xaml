@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppCar.MainPage"
+             NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="20">
+            <Image Source="Logo.png"/>
+            
+            <Label Text="Seja bem-vindo"
+                   HorizontalTextAlignment="Center" 
+                   FontSize="Large"/>
+            
+            <Entry Placeholder="Login" 
+                   PlaceholderColor="Gray" 
+                   BackgroundColor="White"/>
+            
+            <Entry Placeholder="Senha" 
+                   PlaceholderColor="Gray" 
+                   BackgroundColor="White" 
+                   IsPassword="True"/>
+            
+            <Button Text="Entrar"
+                    TextColor="White"
+                    BackgroundColor="Blue"
+                    Clicked="BtnLogin_ClickedAsync"
+                    BorderRadius="50"/>
+            
+            <Button Text="Cadastre-se"
+                    TextColor="White"
+                    BackgroundColor="Blue"
+                    Clicked="BtnCadastrar_ClickedAsync"
+                    BorderRadius="50"/>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
+

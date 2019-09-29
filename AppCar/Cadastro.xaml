@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppCar.Cadastro">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" Spacing="20">
+                <Image Source="logocad.png"/>
+                
+                <Label Text="Faça seu cadastro"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Medium"/>
+                
+                <Entry Placeholder="Login"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"/>
+                
+                <Entry Placeholder="Senha"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White" 
+                       IsPassword="True"/>
+                
+                <Entry Placeholder="Confirme sua senha" 
+                       PlaceholderColor="Gray" 
+                       BackgroundColor="White" 
+                       IsPassword="True"/>
+                
+                <Entry Placeholder="Nome"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"/>
+                
+                <Button Text="Finalizar cadastro"
+                        TextColor="White" BackgroundColor="Blue"
+                        Clicked="BtnFinalizarCadastro_ClickedAsync"
+                        BorderRadius="50"/>
+
+                <Button Text="Cancelar cadastro"
+                        TextColor="White"
+                        BackgroundColor="Blue" 
+                        Clicked="BtnVoltarCadastro_ClickedAsync"
+                        BorderRadius="50"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

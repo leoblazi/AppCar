@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppCar.Combustivel">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="20">
+
+                <Image Source="logocad.png"/>
+                <Label Text="Valores do combustível hoje" HorizontalTextAlignment="Center"/>
+
+                <Label Text="Etanól"
+                       HorizontalTextAlignment="Center"
+                       FontSize= "Medium"/>
+                <Label Text="R$ 2,69"
+                       HorizontalTextAlignment="Center" 
+                       FontSize= "Large"/>
+
+                <Label Text="Gasolina"
+                       HorizontalTextAlignment="Center" 
+                       FontSize= "Medium"/>
+                <Label Text="R$ 3,78" 
+                       HorizontalTextAlignment="Center" 
+                       FontSize= "Large"/>
+                
+                <Label Text="Diesel"
+                       HorizontalTextAlignment="Center"
+                       FontSize= "Medium"/>
+                <Label Text="R$ 4,20" 
+                       HorizontalTextAlignment="Center" 
+                       FontSize="Large"/>
+
+                <Button Text="Alterar Valores" 
+                        TextColor="White" 
+                        BackgroundColor="Blue" 
+                        BorderRadius="50" 
+                        Clicked="btnAlteraValor_Clicked"/>
+                
+                <Button Text="Voltar" 
+                        TextColor="White" 
+                        BackgroundColor="Blue" 
+                        BorderRadius="50" 
+                        Clicked="btnVoltar_Clicked"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
