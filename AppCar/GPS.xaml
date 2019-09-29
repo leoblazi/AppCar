@@ -10,7 +10,7 @@
             <StackLayout Spacing="20" Padding="20">
                 <Image Source="logocad.png"/>
                 <Image Source="GPS.JPG"/>
-                <Button Text="Finalizar percurso"
+                <Button Text="Finalizar Percurso"
                         TextColor="White" BackgroundColor="Red"
                         Clicked="btnVoltar_Clicked"
                         BorderRadius="50"/>
