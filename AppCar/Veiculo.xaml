@@ -10,7 +10,7 @@
             <StackLayout Spacing="20" Padding="20">
                 
                 <Image Source="Logo.png"/>
-                
+
                 <Button Text="Iniciar Percurso"
                         TextColor="White" 
                         BackgroundColor="Green" 
@@ -30,11 +30,13 @@
                         BorderRadius="50"
                         Clicked="btnEditarVeiculo_ClickedAsync"
                         x:Name="btnEditarVeiculo"/>
+                
                 <Button Text="Excluir veículo" 
                         TextColor="White" 
                         BackgroundColor="Blue" 
                         BorderRadius="50"
-                        x:Name="btnEditarVeiculo"/>
+                        x:Name="btnExcluirVeiculo"/>
+                
                 <Button Text="Voltar" 
                         TextColor="White" 
                         BackgroundColor="Blue" 

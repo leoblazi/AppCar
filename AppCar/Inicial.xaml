@@ -36,14 +36,14 @@
                         x:Name="btnTelaRelatorio"/>
 
                 <Button Text="Combustível hoje" 
-                        TextColor="White" 
+                        TextColor="Black" 
                         BackgroundColor="Yellow"
                         Clicked="BtnCombustivel_ClickedAsync" 
                         BorderRadius="50"
                         x:Name="btnValCombustivel"/>
                 
                 <Button Text="Editar cadastro" 
-                        TextColor="Black" 
+                        TextColor="White" 
                         BackgroundColor="Blue" 
                         Clicked="BtnEditar_ClickedAsync" 
                         BorderRadius="50"
@@ -61,7 +61,7 @@
                         BackgroundColor="Blue" 
                         Clicked="BtnSair_ClickedAsync" 
                         BorderRadius="50"
-                        x:Name="txtDicas"/>
+                        x:Name="txtSair"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

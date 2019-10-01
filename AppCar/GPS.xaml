@@ -10,6 +10,19 @@
             <StackLayout Spacing="20" Padding="20">
                 <Image Source="logocad.png"/>
                 <Image Source="GPS.JPG"/>
+
+                <Label Text="Corsa" 
+                       HorizontalTextAlignment="Start"
+                       FontSize="Large"/>
+                <Label Text="KM Atual: 35.885 KM" 
+                       HorizontalTextAlignment="Start"/>
+                <Label Text="Placa: LXD-1855" 
+                       HorizontalTextAlignment="Start"/>
+                <Label Text="Status: Veiculo em movimento" 
+                       TextColor="Red"
+                       FontSize="Medium"
+                       HorizontalTextAlignment="Start"/>
+
                 <Button Text="Finalizar Percurso"
                         TextColor="White" BackgroundColor="Red"
                         Clicked="btnVoltar_Clicked"

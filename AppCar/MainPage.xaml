@@ -37,7 +37,7 @@
                     BackgroundColor="Blue"
                     Clicked="BtnCadastrar_ClickedAsync"
                     BorderRadius="50"
-                    x:Name="btnEntrar"/>
+                    x:Name="btnSair"/>
         </StackLayout>
     </ScrollView>
 

@@ -21,7 +21,11 @@
                        HorizontalTextAlignment="Start"/>
                 <Label Text="Placa: LXD-1855" 
                        HorizontalTextAlignment="Start"/>
-                <Button Text="Ok" 
+                <Label Text="Status: Veiculo em movimento" 
+                       TextColor="Red"
+                       FontSize="Medium"
+                       HorizontalTextAlignment="Start"/>
+                <Button Text="Selecionar este veículo" 
                         TextColor="White" 
                         BackgroundColor="Blue" 
                         BorderRadius="50" 
@@ -35,7 +39,11 @@
                        HorizontalTextAlignment="Start"/>
                 <Label Text="Placa: DXU-2857"
                        HorizontalTextAlignment="Start"/>
-                <Button Text="Ok" 
+                <Label Text="Status: Veiculo parado"
+                       TextColor="Green"
+                       FontSize="Medium"
+                       HorizontalTextAlignment="Start"/>
+                <Button Text="Selecionar este veículo" 
                         TextColor="White"
                         BackgroundColor="Blue" 
                         BorderRadius="50"
