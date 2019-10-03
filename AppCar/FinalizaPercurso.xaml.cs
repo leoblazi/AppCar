@@ -9,13 +9,13 @@ using Xamarin.Forms.Xaml;
 
 namespace AppCar {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class GPS : ContentPage {
-        public GPS() {
+    public partial class FinalizaPercurso : ContentPage {
+        public FinalizaPercurso() {
             InitializeComponent();
         }
 
         private async void btnVoltar_Clicked(object sender, EventArgs e) {
-            await Navigation.PushAsync(new FinalizaPercurso());
+            await Navigation.PushAsync(new Inicial());
         }
     }
 }
