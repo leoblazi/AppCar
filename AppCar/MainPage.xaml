@@ -17,12 +17,14 @@
             <Entry Placeholder="Login" 
                    PlaceholderColor="Gray" 
                    BackgroundColor="White"
+                   MaxLength="20"
                    x:Name="txtUsuario"/>
             
             <Entry Placeholder="Senha" 
                    PlaceholderColor="Gray" 
                    BackgroundColor="White" 
                    IsPassword="True"
+                   MaxLength="20"
                    x:Name="txtSenha"/>
             
             <Button Text="Entrar"

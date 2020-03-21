@@ -136,9 +136,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdicionarVeiculo.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -171,51 +168,35 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Banco.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Banco.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Banco.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Banco.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Banco.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="CadastroLogin.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\AdicionarVeiculoController.cs" />
+    <Compile Include="Controllers\RelatorioController.cs" />
+    <Compile Include="Controllers\CombustivelController.cs" />
+    <Compile Include="Controllers\CarroController .cs" />
+    <Compile Include="Controllers\CadastroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
-      <DependentUpon>Banco.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AdicionarVeiculo.cs" />
-    <Compile Include="Models\AdicionarVeiculoRepositorio.cs" />
-    <Compile Include="Models\DalHelper.cs" />
-    <Compile Include="Models\IAdicionarVeiculoRepositorio.cs" />
+    <Compile Include="Models\RelatorioRepositorio.cs" />
+    <Compile Include="Models\CombustivelRepositorio.cs" />
+    <Compile Include="Models\CarroRepositorio .cs" />
+    <Compile Include="Models\RelatorioDallHelper .cs" />
+    <Compile Include="Models\CombustivelDallHelper.cs" />
+    <Compile Include="Models\CarroDallHelper .cs" />
+    <Compile Include="Models\Combustivel.cs" />
+    <Compile Include="Models\IRelatorioRepositorio.cs" />
+    <Compile Include="Models\ICombustivelRepositorio.cs" />
+    <Compile Include="Models\ICarroRepositorio.cs" />
+    <Compile Include="Models\Relatorio.cs" />
+    <Compile Include="Models\Carro.cs" />
+    <Compile Include="Models\Cadastro.cs" />
+    <Compile Include="Models\CadastroRepositorio.cs" />
+    <Compile Include="Models\CadastroDallHelper.cs" />
+    <Compile Include="Models\ICadastroRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
-    <Content Include="Banco.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Banco.Context.cs</LastGenOutput>
-      <DependentUpon>Banco.edmx</DependentUpon>
-    </Content>
-    <Content Include="Banco.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Banco.edmx</DependentUpon>
-      <LastGenOutput>Banco.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -244,13 +225,6 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Banco.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Banco.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Banco.edmx.diagram">
-      <DependentUpon>Banco.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

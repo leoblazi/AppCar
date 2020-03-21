@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace AppCar {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Relatorios : ContentPage {
-        public Relatorios() {
+        public Relatorios(string login) {
             InitializeComponent();
         }
     }

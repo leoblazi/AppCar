@@ -7,23 +7,29 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace AppCar {
+namespace AppCar
+{
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Veiculo : ContentPage {
+    public partial class Veiculo : ContentPage
+    {
+        string user;
         public Veiculo() {
             InitializeComponent();
         }
 
-        private async void btnGPS_ClickedAsync(object sender, EventArgs e) {
+        private async void btnGPS_ClickedAsync(object sender, EventArgs e)
+        {
             await Navigation.PushAsync(new GPS());
         }
 
-        private async void btnEditarVeiculo_ClickedAsync(object sender, EventArgs e) {
+        private async void btnEditarVeiculo_ClickedAsync(object sender, EventArgs e)
+        {
             await Navigation.PushAsync(new EditarVeiculo());
         }
 
-        private async void btnVoltar_ClickedAsync(object sender, EventArgs e) {
-            await Navigation.PushAsync(new GerenciarVeiculos());
+        private async void btnVoltar_ClickedAsync(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new GerenciarVeiculos(user));
         }
     }
 }

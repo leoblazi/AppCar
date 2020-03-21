@@ -14,7 +14,7 @@
                        HorizontalTextAlignment="Center" 
                        FontSize="Medium"/>
 
-                <Label Text="Corsa" 
+                <Label Text="Corsa"
                        HorizontalTextAlignment="Start"
                        FontSize="Large"/>
                 <Label Text="KM Atual: 35.885 KM" 

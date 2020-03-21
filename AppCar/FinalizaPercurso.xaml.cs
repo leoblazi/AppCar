@@ -7,15 +7,20 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace AppCar {
+namespace AppCar
+{
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FinalizaPercurso : ContentPage {
-        public FinalizaPercurso() {
+    public partial class FinalizaPercurso : ContentPage
+    {
+        string user;
+        public FinalizaPercurso()
+        {
             InitializeComponent();
         }
 
-        private async void btnVoltar_Clicked(object sender, EventArgs e) {
-            await Navigation.PushAsync(new Inicial());
+        private async void btnVoltar_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Inicial(user));
         }
     }
 }

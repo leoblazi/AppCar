@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace AppCar {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditarCadastro : ContentPage {
-        public EditarCadastro() {
+        public EditarCadastro(string login) {
             InitializeComponent();
         }
     }

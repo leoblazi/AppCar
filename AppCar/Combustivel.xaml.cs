@@ -10,7 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace AppCar {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Combustivel : ContentPage {
-        public Combustivel() {
+        string user;
+        public Combustivel(string login) {
+            user = login;
             InitializeComponent();
         }
 
@@ -19,7 +21,7 @@ namespace AppCar {
         }
 
         private async void btnVoltar_Clicked(object sender, EventArgs e) {
-            await Navigation.PushAsync(new Inicial());
+            await Navigation.PushAsync(new Inicial(user));
         }
     }
 }

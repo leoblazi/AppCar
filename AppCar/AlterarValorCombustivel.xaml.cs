@@ -7,19 +7,24 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace AppCar {
+namespace AppCar
+{
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AlterarValorCombustivel : ContentPage {
+    public partial class AlterarValorCombustivel : ContentPage
+    {
+        string user;
         public AlterarValorCombustivel() {
             InitializeComponent();
         }
 
-        private async void btnAtualizarValores_Clicked(object sender, EventArgs e) {
-            await Navigation.PushAsync(new Combustivel());
+        private async void btnAtualizarValores_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Combustivel(user));
         }
 
-        private async void btnVoltar_Clicked(object sender, EventArgs e) {
-            await Navigation.PushAsync(new Combustivel());
+        private async void btnVoltar_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Combustivel(user));
         }
     }
 }

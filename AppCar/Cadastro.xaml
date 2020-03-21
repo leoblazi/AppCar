@@ -17,23 +17,28 @@
                 <Entry Placeholder="Login"
                        PlaceholderColor="Gray"
                        BackgroundColor="White"
+                       MaxLength="20"
                        x:Name="txtCadLogin"/>
                 
                 <Entry Placeholder="Senha"
                        PlaceholderColor="Gray"
-                       BackgroundColor="White" 
+                       BackgroundColor="White"
+                       MaxLength="20"
                        IsPassword="True"
                        x:Name="txtCadSenha"/>
 
                 <Entry Placeholder="Confirme sua senha" 
                        PlaceholderColor="Gray" 
-                       BackgroundColor="White" 
+                       BackgroundColor="White"
+                       MaxLength="20"
                        IsPassword="True"
-                       x:Name="txtConfSenha"/>                
+                       x:Name="txtConfSenha"/>
 
-                <Entry Placeholder="Nome"
+                <Entry Keyboard="Text"
+                       Placeholder="Nome"
                        PlaceholderColor="Gray"
                        BackgroundColor="White"
+                       MaxLength="50"
                        x:Name="txtCadNome"/>
                 
                 <Button Text="Finalizar cadastro"

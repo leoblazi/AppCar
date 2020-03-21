@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace AppCar {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Dicas : ContentPage {
-        public Dicas() {
+        public Dicas(string login) {
             InitializeComponent();
         }
     }

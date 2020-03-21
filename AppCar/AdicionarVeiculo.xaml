@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behavior="clr-namespace:AppCar.Behaviors"
              mc:Ignorable="d"
              x:Class="AppCar.AdicionarVeiculo">
     <ContentPage.Content>
@@ -13,24 +14,43 @@
                 <Label Text="Cadastre seu veículo!"
                        HorizontalTextAlignment="Center"
                        FontSize="Medium"/>
-                
-                <Entry Placeholder="Placa EX:ADS-1582"
-                       PlaceholderColor="Gray" BackgroundColor="White"
-                       x:Name="txtPlaca"/>                        
-                
+
+                <Entry Placeholder="Placa EX:ABC-1234"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       x:Name="txtPlaca">
+                       <Entry.Behaviors>
+                            <behavior:MaskedBehavior Mask="XXX-XXXX" />
+                       </Entry.Behaviors>
+                </Entry>
+
                 <Entry Placeholder="Modelo"
                        PlaceholderColor="Gray"
                        BackgroundColor="White"
+                       MaxLength="50"
                        x:Name="txtModeloVeiculo"/>
-                
-                <Entry Placeholder="Km por litro"
+
+                <Entry Placeholder="Tipo de combustível"
                        PlaceholderColor="Gray"
                        BackgroundColor="White"
-                       IsPassword="True"
+                       MaxLength="20"
+                       x:Name="txtTipoCombustivel"/>
+
+                <Entry Keyboard="Numeric"
+                       Placeholder="Km(s) rodados"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       x:Name="txtKmAtual"/>
+
+                <Entry Keyboard="Numeric"
+                       Placeholder="Km(s) por litro"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
                        x:Name="txtKmLitro"/>
                 
                 <Button Text="Cadastrar novo veículo"
-                        TextColor="White" BackgroundColor="Blue"
+                        TextColor="White"
+                        BackgroundColor="Blue"
                         BorderRadius="50"
                         Clicked="btnCadastrarVeiculoAsync"
                         x:Name="btnCadastrarVeiculo"/>
