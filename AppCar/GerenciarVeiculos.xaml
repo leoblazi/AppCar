@@ -6,48 +6,42 @@
              mc:Ignorable="d"
              x:Class="AppCar.GerenciarVeiculos">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Spacing="20" Padding="20">
+        <StackLayout Spacing="20" Padding="20">
                 <Image Source="logocad.png"/>
-                
+
                 <Label Text="Escolha o veículo" 
                        HorizontalTextAlignment="Center" 
                        FontSize="Medium"/>
 
-                <Label Text="Corsa"
-                       HorizontalTextAlignment="Start"
-                       FontSize="Large"/>
-                <Label Text="KM Atual: 35.885 KM" 
-                       HorizontalTextAlignment="Start"/>
-                <Label Text="Placa: LXD-1855" 
-                       HorizontalTextAlignment="Start"/>
-                <Label Text="Status: Veiculo em movimento" 
-                       TextColor="Red"
-                       FontSize="Medium"
-                       HorizontalTextAlignment="Start"/>
-                <Button Text="Selecionar este veículo" 
-                        TextColor="White" 
-                        BackgroundColor="Blue" 
-                        BorderRadius="50" 
-                        Clicked="btnVeiculo_ClickedAsync"
-                        x:Name="btnSelecionar1"/>
-                
-                <Label Text="Gol" 
-                       HorizontalTextAlignment="Start" 
-                       FontSize="Large"/>
-                <Label Text="KM Atual: 27.925 KM"
-                       HorizontalTextAlignment="Start"/>
-                <Label Text="Placa: DXU-2857"
-                       HorizontalTextAlignment="Start"/>
-                <Label Text="Status: Veiculo parado"
-                       TextColor="Green"
-                       FontSize="Medium"
-                       HorizontalTextAlignment="Start"/>
-                <Button Text="Selecionar este veículo" 
-                        TextColor="White"
-                        BackgroundColor="Blue" 
-                        BorderRadius="50"
-                        x:Name="btnSelecionar2"/>
+                <ListView x:Name="listaCarros" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                        <ViewCell>
+                            <ScrollView>
+                                <StackLayout Spacing="20" Padding="20">
+                                    <Label Text="{Binding modelo}"
+                                           HorizontalTextAlignment="Start"
+                                           FontSize="Large"/>
+                                    <Label Text="{Binding placa}"
+                                        HorizontalTextAlignment="Start"
+                                        FontSize="Medium"/>
+                                    <Label Text="{Binding status}"
+                                        HorizontalTextAlignment="Start"
+                                        FontSize="Medium"/>
+
+                                    <Button Text="Selecionar este veículo" 
+                                            TextColor="White" 
+                                            BackgroundColor="Blue" 
+                                            BorderRadius="50" 
+                                            Clicked="Veiculo_ClickedAsync"
+                                            CommandParameter="{Binding .}"
+                                            x:Name="btnSelecionar1"/>
+                                </StackLayout>
+                            </ScrollView>
+                        </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
                 
                 <Button Text="Voltar" 
                         TextColor="White"
@@ -56,6 +50,6 @@
                         BorderRadius="50"
                         x:Name="btnVoltar"/>
             </StackLayout>
-        </ScrollView>
+        
     </ContentPage.Content>
 </ContentPage>

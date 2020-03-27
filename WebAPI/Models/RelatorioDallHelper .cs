@@ -37,6 +37,7 @@ namespace WebAPI.Models
                                 relatorio.datainicial = Convert.ToDateTime(dr["datainicial"]);
                                 relatorio.datafinal = Convert.ToDateTime(dr["datafinal"]);
                                 relatorio.kmpercorridos = float.Parse(dr["kmpercorridos"].ToString());
+                                relatorio.custo = float.Parse(dr["custo"].ToString());
                                 _relatorios.Add(relatorio);
                             }
                         }
@@ -69,6 +70,7 @@ namespace WebAPI.Models
                                 relatorio.datainicial = Convert.ToDateTime(dr["datainicial"]);
                                 relatorio.datafinal = Convert.ToDateTime(dr["datafinal"]);
                                 relatorio.kmpercorridos = float.Parse(dr["kmpercorridos"].ToString());
+                                relatorio.custo = float.Parse(dr["custo"].ToString());
                             }
                         }
                         return relatorio;
@@ -82,7 +84,7 @@ namespace WebAPI.Models
             int reg = 0;
             using (SqlConnection con = new SqlConnection(GetStringConexao()))
             {
-                string sql = "INSERT INTO Relatorio (carro, endinicial, endfinal, datainicial, datafinal, kmpercorridos) VALUES(@carro, @endinicial, @endfinal, @datainicial, @datafinal, @kmpercorridos)";
+                string sql = "INSERT INTO Relatorio (carro, endinicial, endfinal, datainicial, datafinal, kmpercorridos) VALUES(@carro, @endinicial, @endfinal, @datainicial, @datafinal, @kmpercorridos, @custo)";
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     cmd.CommandType = CommandType.Text;
@@ -92,6 +94,7 @@ namespace WebAPI.Models
                     cmd.Parameters.AddWithValue("@datainicial", relatorio.datainicial);
                     cmd.Parameters.AddWithValue("@datafinal", relatorio.datafinal);
                     cmd.Parameters.AddWithValue("@kmpercorridos", relatorio.kmpercorridos);
+                    cmd.Parameters.AddWithValue("@custo", relatorio.custo);
 
                     con.Open();
                     reg = cmd.ExecuteNonQuery();
@@ -106,7 +109,7 @@ namespace WebAPI.Models
             int reg = 0;
             using (SqlConnection con = new SqlConnection(GetStringConexao()))
             {
-                string sql = "UPDATE Relatorio SET carro=@carro, endinicial=@endinicial, endfinal=@endfinal, datainicial=@datainicial, datafinal=@datafinal, kmpercorridos=@kmpercorridos";
+                string sql = "UPDATE Relatorio SET carro=@carro, endinicial=@endinicial, endfinal=@endfinal, datainicial=@datainicial, datafinal=@datafinal, kmpercorridos=@kmpercorridos, custo=@custo WHERE id = " + relatorio.id;
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     cmd.CommandType = CommandType.Text;
@@ -117,6 +120,7 @@ namespace WebAPI.Models
                     cmd.Parameters.AddWithValue("@datainicial", relatorio.datainicial);
                     cmd.Parameters.AddWithValue("@datafinal", relatorio.datafinal);
                     cmd.Parameters.AddWithValue("@kmpercorridos", relatorio.kmpercorridos);
+                    cmd.Parameters.AddWithValue("@custo", relatorio.custo);
 
                     con.Open();
                     reg = cmd.ExecuteNonQuery();

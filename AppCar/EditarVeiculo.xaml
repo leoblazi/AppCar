@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behavior="clr-namespace:AppCar.Behaviors"
              mc:Ignorable="d"
              x:Class="AppCar.EditarVeiculo">
     <ContentPage.Content>
@@ -12,23 +13,60 @@
                 
                 <Label Text="Alterar informações"
                        HorizontalTextAlignment="Center"/>
-                
-                <Entry Placeholder="Placa EX:ADS-1582"
-                       PlaceholderColor="Gray" 
-                       BackgroundColor="White"
-                       x:Name="txtInfPlaca"/>
-                
+
+                <Label Text="Modelo:"
+                       HorizontalTextAlignment="Start"/>
                 <Entry Placeholder="Modelo"
+                       Text=""
                        PlaceholderColor="Gray"
                        BackgroundColor="White"
-                       x:Name="txtInfModelo"/>
+                       x:Name="txtModelo"/>
+
+                <Label Text="Placa:"
+                       HorizontalTextAlignment="Start"/>
+                <Entry Placeholder="Placa"
+                       Text=""
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       x:Name="txtPlaca">
+                    <Entry.Behaviors>
+                        <behavior:MaskedBehavior Mask="XXX-XXXX" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Label Text="Tipo de combustivel:"
+                       HorizontalTextAlignment="Start"/>
+                <Entry Placeholder="Tipo de combustível"
+                       Text=""
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       x:Name="txtTipocombustivel"/>
+
+                <Label Text="KM atual:"
+                       HorizontalTextAlignment="Start"/>
+                <Entry Placeholder="KM rodados"
+                       Text=""
+                       Keyboard="Numeric"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       x:Name="txtKmatual"/>
                 
-                <Entry Placeholder="Km por litro" 
-                       PlaceholderColor="Gray" 
-                       BackgroundColor="White" 
-                       IsPassword="True"
-                       x:Name="txtInfKml"/>
+                <Label Text="KM por litro:"
+                       HorizontalTextAlignment="Start"/>
+                <Entry Placeholder="KM por litro"
+                       Text=""
+                       Keyboard="Numeric"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       x:Name="txtKmlitro"/>
                 
+                <Button Text="Salvar mudanças"
+                        TextColor="White" 
+                        BackgroundColor="Blue"
+                        Clicked="btnSalvarClicked"
+                        BorderRadius="50"
+                        x:Name="btnSalvar"/>
+
                 <Button Text="Cancelar e voltar"
                         TextColor="White" 
                         BackgroundColor="Blue"

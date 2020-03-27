@@ -11,5 +11,6 @@ namespace AppCar.Models
         public DateTime datainicial { get; set; }
         public DateTime datafinal { get; set; }
         public float kmpercorridos { get; set; }
+        public float custo { get; set; }
     }
 }

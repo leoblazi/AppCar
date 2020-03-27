@@ -103,11 +103,12 @@ namespace WebAPI.Models
             int reg = 0;
             using (SqlConnection con = new SqlConnection(GetStringConexao()))
             {
-                string sql = "UPDATE Combustivel SET login=@login, diesel=@diesel, etanol=@etanol, gasolina=@gasolina, outro=@outro";
+                string sql = "UPDATE Combustivel SET login=@login, diesel=@diesel, etanol=@etanol, gasolina=@gasolina, outro=@outro WHERE id = " + combustivel.id;
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Parameters.AddWithValue("@id", combustivel.id);
+                    cmd.Parameters.AddWithValue("@login", combustivel.login);
                     cmd.Parameters.AddWithValue("@etanol", combustivel.etanol);
                     cmd.Parameters.AddWithValue("@diesel", combustivel.diesel);
                     cmd.Parameters.AddWithValue("@gasolina", combustivel.gasolina);

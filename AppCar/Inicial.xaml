@@ -12,7 +12,8 @@
                 <Image Source="Logo.png"/>
                 <Label Text="Seja bem-vindo, usuario!" 
                        HorizontalTextAlignment="Center" 
-                       FontSize="Medium"/>
+                       FontSize="Medium"
+                       x:Name="lBemvindo"/>
                 
                 <Button Text="Seus veículos" 
                         TextColor="White" 
@@ -20,20 +21,13 @@
                         Clicked="BtnGerenciarVeiculos_ClickedAsync" 
                         BorderRadius="50"
                         x:Name="btnListaVeiculos"/>
-                
+
                 <Button Text="Adicionar veículo" 
                         TextColor="White" 
                         BackgroundColor="Blue" 
                         Clicked="BtnAdicionar_ClickedAsync" 
                         BorderRadius="50"
                         x:Name="btnAddVeiculo"/>
-                
-                <Button Text="Relatórios" 
-                        TextColor="White" 
-                        BackgroundColor="Blue" 
-                        Clicked="BtnRelatorios_ClickedAsync"
-                        BorderRadius="50"
-                        x:Name="btnTelaRelatorio"/>
 
                 <Button Text="Combustível hoje" 
                         TextColor="Black" 

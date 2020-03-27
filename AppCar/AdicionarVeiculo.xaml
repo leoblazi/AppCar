@@ -15,20 +15,20 @@
                        HorizontalTextAlignment="Center"
                        FontSize="Medium"/>
 
+                <Entry Placeholder="Modelo"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       MaxLength="30"
+                       x:Name="txtModeloVeiculo"/>
+                
                 <Entry Placeholder="Placa EX:ABC-1234"
                        PlaceholderColor="Gray"
                        BackgroundColor="White"
                        x:Name="txtPlaca">
-                       <Entry.Behaviors>
-                            <behavior:MaskedBehavior Mask="XXX-XXXX" />
-                       </Entry.Behaviors>
+                    <Entry.Behaviors>
+                        <behavior:MaskedBehavior Mask="XXX-XXXX" />
+                    </Entry.Behaviors>
                 </Entry>
-
-                <Entry Placeholder="Modelo"
-                       PlaceholderColor="Gray"
-                       BackgroundColor="White"
-                       MaxLength="50"
-                       x:Name="txtModeloVeiculo"/>
 
                 <Entry Placeholder="Tipo de combustível"
                        PlaceholderColor="Gray"

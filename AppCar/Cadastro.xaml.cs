@@ -15,16 +15,19 @@ namespace AppCar
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Cadastro : ContentPage
     {
-        CadastroDataService ds = new CadastroDataService();
-        Controller controller = new Controller();
+        CadastroDataService ds;
+        CadastroController controller;
         public Cadastro()
         {
             InitializeComponent();
+            ds = new CadastroDataService();
+            controller = new CadastroController();
         }
 
         private async void BtnVoltarCadastro_ClickedAsync(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MainPage());
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
         private async void BtnFinalizarCadastro_ClickedAsync(object sender, EventArgs e)
@@ -52,6 +55,7 @@ namespace AppCar
                 {
                     await ds.AddCadastroAsync(cadastro);
                     await Navigation.PushAsync(new MainPage());
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
                 }
             }
             catch (Exception ex)

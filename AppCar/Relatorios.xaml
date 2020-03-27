@@ -7,9 +7,65 @@
              x:Class="AppCar.Relatorios">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Relatórios:"
+                   HorizontalTextAlignment="Center"
+                   FontSize="Large"/>
+            
+            <ListView x:Name="listaRelatorios" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ScrollView>
+                                <StackLayout Spacing="20" Padding="20">
+                                    <Label Text="Endereço inicial:"
+                                           HorizontalTextAlignment="Start"
+                                           FontSize="Large"/>
+                                    <Label Text="{Binding endinicial}"
+                                           HorizontalTextAlignment="Start"
+                                           FontSize="Medium"/>
+                                    <Label Text="Endereço final:"
+                                           HorizontalTextAlignment="Start"
+                                           FontSize="Large"/>
+                                    <Label Text="{Binding endfinal}"
+                                        HorizontalTextAlignment="Start"
+                                        FontSize="Medium"/>
+                                    <Label Text="Horário de início:"
+                                           HorizontalTextAlignment="Start"
+                                           FontSize="Large"/>
+                                    <Label Text="{Binding datainicial}"
+                                        HorizontalTextAlignment="Start"
+                                        FontSize="Medium"/>
+                                    <Label Text="Horário final:"
+                                           HorizontalTextAlignment="Start"
+                                           FontSize="Large"/>
+                                    <Label Text="{Binding datafinal}"
+                                        HorizontalTextAlignment="Start"
+                                        FontSize="Medium"/>
+                                    <Label Text="KM percorridos:"
+                                           HorizontalTextAlignment="Start"
+                                           FontSize="Large"/>
+                                    <Label Text="{Binding kmpercorridos}"
+                                        HorizontalTextAlignment="Start"
+                                        FontSize="Medium"/>
+                                    <Label Text="Custo da viagem:"
+                                           HorizontalTextAlignment="Start"
+                                           FontSize="Large"/>
+                                    <Label Text="{Binding custo}"
+                                        HorizontalTextAlignment="Start"
+                                        FontSize="Medium"/>
+                                </StackLayout>
+                            </ScrollView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <Button Text="Voltar" 
+                        TextColor="White"
+                        BackgroundColor="Blue" 
+                        Clicked="btnVoltar_ClickedAsync"
+                        BorderRadius="50"
+                        x:Name="btnVoltar"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

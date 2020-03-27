@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppCar.EditarSenha">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="20">
+                <Image Source="logocad.png"/>
+
+                <Label Text="Alterar Senha"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Large"/>
+
+                <Label Text="Confirmar senha:"
+                       HorizontalTextAlignment="Start"
+                       FontSize="Medium"/>
+                <Entry Placeholder="Senha"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       MaxLength="20"
+                       IsPassword="True"
+                       x:Name="txtConfSenha"/>
+                
+                <Label Text="Nova senha:"
+                       HorizontalTextAlignment="Start"
+                       FontSize="Medium"/>
+                <Entry Placeholder="Nova senha" 
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       MaxLength="20"
+                       IsPassword="True"
+                       x:Name="txtNovaSenha"/>
+
+                <Button Text="Salvar"
+                        TextColor="White"
+                        BackgroundColor="Blue"
+                        BorderRadius="50"
+                        Clicked="Salvar_ClickedAsync"
+                        x:Name="btnSalvar"/>
+
+                <Button Text="Voltar"
+                        TextColor="White"
+                        BackgroundColor="Blue"
+                        BorderRadius="50"
+                        Clicked="Voltar_ClickedAsync"
+                        x:Name="btnVoltar"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

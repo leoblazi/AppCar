@@ -18,12 +18,33 @@
                         BorderRadius="50"
                         x:Name="btnIniciarPercurso"/>
 
-                <Label Text="Corsa" 
-                       HorizontalTextAlignment="Start"/>
-                <Label Text="KM Atual: 35.885 KM" 
-                       HorizontalTextAlignment="Start"/>
-                <Label Text="Placa: LXD-1855" 
-                       HorizontalTextAlignment="Start"/>
+                <Button Text="Relatórios" 
+                        TextColor="White" 
+                        BackgroundColor="Blue" 
+                        Clicked="BtnRelatorios_ClickedAsync"
+                        BorderRadius="50"
+                        x:Name="btnTelaRelatorio"/>
+
+                <Label Text="Modelo: ?" 
+                       HorizontalTextAlignment="Start"
+                       FontSize="Medium"
+                       x:Name="txtModelo"/>
+                <Label Text="Placa: ???-????" 
+                       HorizontalTextAlignment="Start"
+                       FontSize="Medium"
+                       x:Name="txtPlaca"/>
+                <Label Text="Tipo de combustível: ?" 
+                       HorizontalTextAlignment="Start"
+                       x:Name="txtTipocombustivel"/>
+                <Label Text="KM atual: ?" 
+                       HorizontalTextAlignment="Start"
+                       x:Name="txtKmatual"/>
+                <Label Text="KM por litro: ?" 
+                       HorizontalTextAlignment="Start"
+                       x:Name="txtKmlitro"/>
+                <Label Text="Status: ?" 
+                       HorizontalTextAlignment="Start"
+                       x:Name="txtStatus"/>
 
                 <Button Text="Editar informações deste véiculo" 
                         TextColor="White" BackgroundColor="Blue" 
@@ -35,6 +56,7 @@
                         TextColor="White" 
                         BackgroundColor="Blue" 
                         BorderRadius="50"
+                        Clicked="btnExcluir_ClickedAsync"
                         x:Name="btnExcluirVeiculo"/>
                 
                 <Button Text="Voltar" 

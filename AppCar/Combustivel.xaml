@@ -15,23 +15,34 @@
                 <Label Text="Etanol"
                        HorizontalTextAlignment="Center"
                        FontSize= "Medium"/>
-                <Label Text="R$ 2,69"
-                       HorizontalTextAlignment="Center" 
-                       FontSize= "Large"/>
+                <Label Text="R$ 0,00"
+                       HorizontalTextAlignment="Center"
+                       FontSize= "Large"
+                       x:Name="txtEtanol"/>
 
                 <Label Text="Gasolina"
                        HorizontalTextAlignment="Center" 
                        FontSize= "Medium"/>
-                <Label Text="R$ 3,78" 
+                <Label Text="R$ 0,00" 
                        HorizontalTextAlignment="Center" 
-                       FontSize= "Large"/>
+                       FontSize= "Large"
+                       x:Name="txtGasolina"/>
                 
                 <Label Text="Diesel"
                        HorizontalTextAlignment="Center"
                        FontSize= "Medium"/>
-                <Label Text="R$ 4,20" 
+                <Label Text="R$ 0,00" 
                        HorizontalTextAlignment="Center" 
-                       FontSize="Large"/>
+                       FontSize="Large"
+                       x:Name="txtDiesel"/>
+
+                <Label Text="Outro"
+                       HorizontalTextAlignment="Center"
+                       FontSize= "Medium"/>
+                <Label Text="R$ 0,00" 
+                       HorizontalTextAlignment="Center" 
+                       FontSize="Large"
+                       x:Name="txtOutro"/>
 
                 <Button Text="Alterar Valores" 
                         TextColor="White" 

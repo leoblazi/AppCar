@@ -37,6 +37,7 @@ namespace WebAPI.Models
                                 carro.tipocombustivel = dr["tipocombustivel"].ToString();
                                 carro.kmatual = float.Parse(dr["kmatual"].ToString());
                                 carro.kmlitro = float.Parse(dr["kmlitro"].ToString());
+                                carro.status = dr["status"].ToString();
                                 _carros.Add(carro);
                             }
                         }
@@ -69,6 +70,7 @@ namespace WebAPI.Models
                                 carro.tipocombustivel = dr["tipocombustivel"].ToString();
                                 carro.kmatual = float.Parse(dr["kmatual"].ToString());
                                 carro.kmlitro = float.Parse(dr["kmlitro"].ToString());
+                                carro.status = dr["status"].ToString();
                             }
                         }
                         return carro;
@@ -82,7 +84,7 @@ namespace WebAPI.Models
             int reg = 0;
             using (SqlConnection con = new SqlConnection(GetStringConexao()))
             {
-                string sql = "INSERT INTO Carro (placa, modelo, dono, tipocombustivel, kmatual, kmlitro) VALUES(@placa, @modelo, @dono, @tipocombustivel, @kmatual, @kmlitro)";
+                string sql = "INSERT INTO Carro (placa, modelo, dono, tipocombustivel, kmatual, kmlitro, status) VALUES(@placa, @modelo, @dono, @tipocombustivel, @kmatual, @kmlitro, @status)";
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     cmd.CommandType = CommandType.Text;
@@ -92,6 +94,7 @@ namespace WebAPI.Models
                     cmd.Parameters.AddWithValue("@tipocombustivel", carro.tipocombustivel);
                     cmd.Parameters.AddWithValue("@kmatual", carro.kmatual);
                     cmd.Parameters.AddWithValue("@kmlitro", carro.kmlitro);
+                    cmd.Parameters.AddWithValue("@status", carro.status);
 
                     con.Open();
                     reg = cmd.ExecuteNonQuery();
@@ -106,7 +109,7 @@ namespace WebAPI.Models
             int reg = 0;
             using (SqlConnection con = new SqlConnection(GetStringConexao()))
             {
-                string sql = "UPDATE Carro SET placa=@placa, modelo=@modelo, dono=@dono, tipocombustivel=@tipocombustivel, kmatual=@kmatual, kmlitro=@kmlitro";
+                string sql = "UPDATE Carro SET placa=@placa, modelo=@modelo, dono=@dono, tipocombustivel=@tipocombustivel, kmatual=@kmatual, kmlitro=@kmlitro, status=@status WHERE id = " + carro.id;
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     cmd.CommandType = CommandType.Text;
@@ -117,6 +120,7 @@ namespace WebAPI.Models
                     cmd.Parameters.AddWithValue("@tipocombustivel", carro.tipocombustivel);
                     cmd.Parameters.AddWithValue("@kmatual", carro.kmatual);
                     cmd.Parameters.AddWithValue("@kmlitro", carro.kmlitro);
+                    cmd.Parameters.AddWithValue("@status", carro.status);
 
                     con.Open();
                     reg = cmd.ExecuteNonQuery();

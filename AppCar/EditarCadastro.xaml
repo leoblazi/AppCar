@@ -12,25 +12,36 @@
                 
                 <Label Text="usuario, nesta tela você pode editar os seus dados"
                        HorizontalTextAlignment="Center"
-                       FontSize="Medium"/>
+                       FontSize="Medium"
+                       x:Name="ltitulo"/>
                 
                 <Button Text="Alterar login"
                         TextColor="White"
                         BackgroundColor="Blue"
                         BorderRadius="50"
+                        Clicked="AlterarLogin_ClickedAsync"
                         x:Name="btnAlterarLogin"/>
                 
                 <Button Text="Alterar minha senha" 
                         TextColor="White" 
                         BackgroundColor="Blue" 
                         BorderRadius="50"
+                        Clicked="AlterarSenha_ClickedAsync"
                         x:Name="btnAlterarSenha"/>
                 
                 <Button Text="Alterar meu nome" 
                         TextColor="White" 
                         BackgroundColor="Blue" 
                         BorderRadius="50"
+                        Clicked="AlterarNome_ClickedAsync"
                         x:Name="btnAlterarNome"/>
+
+                <Button Text="Voltar" 
+                        TextColor="White" 
+                        BackgroundColor="Blue" 
+                        BorderRadius="50"
+                        Clicked="Voltar_ClickedAsync"
+                        x:Name="btnVoltar"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

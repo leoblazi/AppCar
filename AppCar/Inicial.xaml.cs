@@ -18,38 +18,41 @@ namespace AppCar
         string user;
         public Inicial(string login)
         {
-            user = login;
             InitializeComponent();
+            user = login;
+            lBemvindo.Text = "Seja bem - vindo, "+login.Trim()+"!";
         }
 
         private async void BtnGerenciarVeiculos_ClickedAsync(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new GerenciarVeiculos(user));
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
         private async void BtnAdicionar_ClickedAsync(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AdicionarVeiculo(user));
-        }
-
-        private async void BtnRelatorios_ClickedAsync(object sender, EventArgs e) {
-            await Navigation.PushAsync(new Relatorios(user));
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
         private async void BtnCombustivel_ClickedAsync(object sender, EventArgs e) {
             await Navigation.PushAsync(new Combustivel(user));
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
         private async void BtnEditar_ClickedAsync(object sender, EventArgs e) {
             await Navigation.PushAsync(new EditarCadastro(user));
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
         private async void BtnDicas_Clicked(object sender, EventArgs e) {
             await Navigation.PushAsync(new Dicas(user));
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
         private async void BtnSair_ClickedAsync(object sender, EventArgs e) {
             await Navigation.PushAsync(new MainPage());
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
     }
 }

@@ -18,6 +18,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="EditarNome.xaml.cs">
+      <DependentUpon>EditarNome.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="EditarSenha.xaml.cs">
+      <DependentUpon>EditarSenha.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="EditarLogin.xaml.cs">
+      <DependentUpon>EditarLogin.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="AdicionarVeiculo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

@@ -16,26 +16,38 @@
                 <Label Text="Etanol"
                        HorizontalTextAlignment="Center" 
                        FontSize= "Medium"/>
-                <Entry Placeholder="R$ 2,69"
+                <Entry Placeholder="Valor do Etanol"
+                       Keyboard="Numeric"
                        PlaceholderColor="Gray"
                        BackgroundColor="White"
-                       x:Name="txtValorEtanol"/>
+                       x:Name="txtEtanol"/>
 
                 <Label Text="Gasolina"
                        HorizontalTextAlignment="Center"
                        FontSize= "Medium"/>
-                <Entry Placeholder="R$ 3,78"
+                <Entry Placeholder="Valor da gasolina"
+                       Keyboard="Numeric"
                        PlaceholderColor="Gray"
                        BackgroundColor="White"
-                       x:Name="txtValorGasolina"/>
+                       x:Name="txtGasolina"/>
 
                 <Label Text="Diesel"
                        HorizontalTextAlignment="Center"
                        FontSize= "Medium"/>
-                <Entry Placeholder="R$ 4,20"
+                <Entry Placeholder="Valor do diesel"
+                       Keyboard="Numeric"
                        PlaceholderColor="Gray"
                        BackgroundColor="White"
-                       x:Name="txtValorDiesel"/>
+                       x:Name="txtDiesel"/>
+
+                <Label Text="Outro"
+                       HorizontalTextAlignment="Center"
+                       FontSize= "Medium"/>
+                <Entry Placeholder="Valor de outro combustível"
+                       Keyboard="Numeric"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       x:Name="txtOutro"/>
 
                 <Button Text="Atualizar Valores e salvar"
                         TextColor="White" BackgroundColor="Blue"

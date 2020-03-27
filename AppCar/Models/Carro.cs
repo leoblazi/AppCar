@@ -11,5 +11,6 @@ namespace AppCar.Models
         public string tipocombustivel { get; set; }
         public float kmatual { get; set; }
         public float kmlitro { get; set; }
+        public string status { get; set; }
     }
 }

@@ -97,7 +97,7 @@ namespace WebAPI.Models
             int reg = 0;
             using (SqlConnection con = new SqlConnection(GetStringConexao()))
             {
-                string sql = "UPDATE Cadastro SET login=@login, senha=@senha, nome=@nome";
+                string sql = "UPDATE Cadastro SET login=@login, senha=@senha, nome=@nome WHERE id = " + cadastro.id;
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     cmd.CommandType = CommandType.Text;

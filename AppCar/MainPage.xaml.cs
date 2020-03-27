@@ -15,15 +15,18 @@ namespace AppCar
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        CadastroDataService ds = new CadastroDataService();
-        Controller controller = new Controller();
+        CadastroDataService ds;
+        CadastroController controller;
         public MainPage() {
             InitializeComponent();
+            ds = new CadastroDataService();
+            controller = new CadastroController();
         }
 
         private async void BtnCadastrar_ClickedAsync(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Cadastro());
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
         private async void BtnLogin_ClickedAsync(object sender, EventArgs e)
@@ -41,6 +44,7 @@ namespace AppCar
                 if (!msg[0].Equals("Erro"))
                 {
                     await Navigation.PushAsync(new Inicial(login));
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
                 }
                 await DisplayAlert(msg[0], msg[1], msg[2]);
             }
