@@ -13,7 +13,7 @@
 
                 <Button Text="Iniciar Percurso"
                         TextColor="White" 
-                        BackgroundColor="Green" 
+                        BackgroundColor="Blue" 
                         Clicked="btnGPS_ClickedAsync" 
                         BorderRadius="50"
                         x:Name="btnIniciarPercurso"/>

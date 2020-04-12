@@ -13,14 +13,25 @@ namespace AppCar
     public partial class FinalizaPercurso : ContentPage
     {
         string user;
-        public FinalizaPercurso()
+        Models.Carro carro;
+
+        public FinalizaPercurso(string login, Models.Carro carro, Models.Relatorio relatorio)
         {
+            this.carro = carro;
+            user = login;
             InitializeComponent();
+            txtKmpercorridos.Text = "KM percorridos: "+relatorio.kmpercorridos.ToString("F")+"KM";
+            txtCusto.Text = relatorio.custo.ToString("F") + "R$";
+            txtModelo.Text = carro.modelo;
+            txtKmatual.Text = "KM Atual: " + carro.kmatual.ToString("F") + "KM";
+            txtPlaca.Text = "Placa: " + carro.placa;
+            txtStatus.Text = "Status:" + carro.status;
         }
 
         private async void btnVoltar_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Inicial(user));
+            await Navigation.PushAsync(new Veiculo(user, carro));
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
     }
 }

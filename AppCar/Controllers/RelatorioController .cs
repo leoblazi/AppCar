@@ -18,5 +18,27 @@ namespace AppCar.Controllers
             }
             return relatorios;
         }
+
+        public async void AddRelatorio(Models.Relatorio relatorio, Models.Combustivel combustivel, Models.Carro carro, int combustivelUtilizado)
+        {
+            switch (combustivelUtilizado)
+            {
+                case 0:
+                    relatorio.custo = float.Parse((relatorio.kmpercorridos * combustivel.etanol / carro.kmlitro).ToString());
+                    break;
+                case 1:
+                    relatorio.custo = float.Parse((relatorio.kmpercorridos * combustivel.gasolina / carro.kmlitro).ToString());
+                    break;
+                case 2:
+                    relatorio.custo = float.Parse((relatorio.kmpercorridos * combustivel.diesel / carro.kmlitro).ToString());
+                    break;
+                case 3:
+                    relatorio.custo = float.Parse((relatorio.kmpercorridos * combustivel.outro / carro.kmlitro).ToString());
+                    break;
+            }
+
+            RelatorioDataService ds = new RelatorioDataService();
+            await ds.AddRelatorioAsync(relatorio);
+        }
     }
 }

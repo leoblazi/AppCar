@@ -12,34 +12,38 @@
 
                 <Label Text="20 KM percorridos"
                        FontSize="Large"
-                       HorizontalTextAlignment="Center"/>
+                       HorizontalTextAlignment="Center"
+                       x:Name="txtKmpercorridos"/>
                 <Label Text="Você gastou:"
                        FontSize="Medium"
                        HorizontalTextAlignment="Center"/>
                 <Label Text="R$ 7,83"
                        TextColor="Green"
                        FontSize="Large"
-                       HorizontalTextAlignment="Center"/>
+                       HorizontalTextAlignment="Center"
+                       x:Name="txtCusto"/>
                 <Label Text="de combustível"
                        FontSize="Medium"
                        HorizontalTextAlignment="Center"/>
 
-                <Image Source="GPS2.png"/>
-
-                <Label Text="Corsa" 
+                <Label Text="" 
                        HorizontalTextAlignment="Start"
-                       FontSize="Large"/>
-                <Label Text="KM Atual: 35.905 KM" 
-                       HorizontalTextAlignment="Start"/>
-                <Label Text="Placa: LXD-1855" 
-                       HorizontalTextAlignment="Start"/>
-                <Label Text="Status: Veiculo Parado" 
+                       FontSize="Large"
+                       x:Name="txtModelo"/>
+                <Label Text="" 
+                       HorizontalTextAlignment="Start"
+                       x:Name="txtKmatual"/>
+                <Label Text="" 
+                       HorizontalTextAlignment="Start"
+                       x:Name="txtPlaca"/>
+                <Label Text=""
                        TextColor="Green"
                        FontSize="Medium"
-                       HorizontalTextAlignment="Start"/>
+                       HorizontalTextAlignment="Start"
+                       x:Name="txtStatus"/>
 
-                <Button Text="Voltar à tela incial"
-                        TextColor="White" BackgroundColor="Red"
+                <Button Text="Voltar"
+                        TextColor="White" BackgroundColor="Blue"
                         Clicked="btnVoltar_Clicked"
                         BorderRadius="50"
                         x:Name="btnTelaInicial"/>

@@ -9,25 +9,59 @@
         <ScrollView>
             <StackLayout Spacing="20" Padding="20">
                 <Image Source="logocad.png"/>
-                <Image Source="GPS.JPG"/>
 
-                <Label Text="Corsa" 
+                <Entry Placeholder="Endereço inicial" 
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       MaxLength="20"
+                       x:Name="txtEndinic"/>
+                
+                <Entry Placeholder="Endereço final" 
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       MaxLength="20"
+                       x:Name="txtEndfinal"/>
+
+                <Picker x:Name="pckCombustivel" HorizontalOptions="FillAndExpand"
+                        Title="Combustível utilizado:"
+                        SelectedItem="Etanol"
+                        SelectedIndexChanged="pckCombustivel_SelectedIndexChanged">
+                    <Picker.Items>
+                        <x:String>Etanol</x:String>
+                        <x:String>Gasolina</x:String>
+                        <x:String>Diesel</x:String>
+                        <x:String>Outro</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label Text="" 
                        HorizontalTextAlignment="Start"
-                       FontSize="Large"/>
-                <Label Text="KM Atual: 35.885 KM" 
-                       HorizontalTextAlignment="Start"/>
-                <Label Text="Placa: LXD-1855" 
-                       HorizontalTextAlignment="Start"/>
-                <Label Text="Status: Veiculo em movimento" 
-                       TextColor="Red"
+                       FontSize="Large"
+                       x:Name="txtModelo"/>
+                <Label Text="" 
+                       HorizontalTextAlignment="Start"
+                       x:Name="txtKmatual"/>
+                <Label Text="" 
+                       HorizontalTextAlignment="Start"
+                       x:Name="txtPlaca"/>
+                <Label Text=""
+                       TextColor="Green"
                        FontSize="Medium"
-                       HorizontalTextAlignment="Start"/>
+                       HorizontalTextAlignment="Start"
+                       x:Name="txtStatus"/>
 
-                <Button Text="Finalizar Percurso"
-                        TextColor="White" BackgroundColor="Red"
-                        Clicked="btnVoltar_Clicked"
+                <Button Text="Iniciar Percurso"
+                        TextColor="White" BackgroundColor="Green"
+                        Clicked="btnIniciarFinalizar"
                         BorderRadius="50"
-                        x:Name="btnFinalizarPercurso"/>
+                        x:Name="btnIniciarFinalizarPercurso"/>
+                
+                <Button Text="Cancelar" 
+                        TextColor="White" 
+                        BackgroundColor="Blue" 
+                        BorderRadius="50" 
+                        Clicked="btnVoltar_ClickedAsync"
+                        x:Name="btnVoltar"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

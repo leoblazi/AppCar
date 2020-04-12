@@ -84,7 +84,7 @@ namespace WebAPI.Models
             int reg = 0;
             using (SqlConnection con = new SqlConnection(GetStringConexao()))
             {
-                string sql = "INSERT INTO Relatorio (carro, endinicial, endfinal, datainicial, datafinal, kmpercorridos) VALUES(@carro, @endinicial, @endfinal, @datainicial, @datafinal, @kmpercorridos, @custo)";
+                string sql = "INSERT INTO Relatorio (carro, endinicial, endfinal, datainicial, datafinal, kmpercorridos, custo) VALUES(@carro, @endinicial, @endfinal, @datainicial, @datafinal, @kmpercorridos, @custo)";
                 using (SqlCommand cmd = new SqlCommand(sql, con))
                 {
                     cmd.CommandType = CommandType.Text;

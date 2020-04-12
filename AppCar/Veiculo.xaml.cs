@@ -33,7 +33,7 @@ namespace AppCar
 
         private async void btnGPS_ClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new GPS());
+            await Navigation.PushAsync(new GPS(user, carro));
             Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
