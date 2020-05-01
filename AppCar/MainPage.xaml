@@ -40,6 +40,13 @@
                     Clicked="BtnCadastrar_ClickedAsync"
                     BorderRadius="50"
                     x:Name="btnSair"/>
+
+            <Button Text="Esqueci minha senha"
+                    TextColor="White"
+                    BackgroundColor="Gray"
+                    Clicked="BtnEsqueciSenha_ClickedAsync"
+                    BorderRadius="50"
+                    x:Name="btnEsqueciSenha"/>
         </StackLayout>
     </ScrollView>
 

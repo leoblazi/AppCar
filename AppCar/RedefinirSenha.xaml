@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppCar.RedefinirSenha"
+             NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="20">
+            <Image Source="Logo.png"/>
+            
+            <Label Text="Redefinir Senha"
+                   HorizontalTextAlignment="Center" 
+                   FontSize="Large"/>
+            
+            <Entry Placeholder="Nova senha" 
+                   PlaceholderColor="Gray" 
+                   BackgroundColor="White"
+                   IsPassword="True"
+                   MaxLength="20"
+                   x:Name="txtSenha"/>
+
+            <Entry Placeholder="Confirmar nova senha"
+                   PlaceholderColor="Gray" 
+                   BackgroundColor="White" 
+                   IsPassword="True"
+                   MaxLength="60"
+                   x:Name="txtConfirmarSenha"/>
+
+            <Button Text="Redefinir"
+                    TextColor="White"
+                    BackgroundColor="Blue"
+                    Clicked="BtnRedefinir"
+                    BorderRadius="50"
+                    x:Name="btnRedefinir"/>
+
+            <Button Text="Voltar"
+                    TextColor="White"
+                    BackgroundColor="Blue"
+                    Clicked="BtnVoltar"
+                    BorderRadius="50"
+                    x:Name="btnVoltar"/>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
+

@@ -12,16 +12,17 @@ using Xamarin.Essentials;
 
 using AppCar.Controllers;
 using AppCar.Service;
+using System.Threading;
 
 namespace AppCar
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GPS : ContentPage
     {
-        double latitudeInicial, longitudeInicial, latitudeFinal, longitudeFinal;
+        double latitudeInicial, longitudeInicial, latitudeFinal, longitudeFinal, distancia;
         DateTime tempoInicio;
         int combustivelUtilizado;
-        bool iniciado;
+        bool iniciado, finalizado;
         string user;
         Models.Carro carro;
         Models.Relatorio relatorio;
@@ -32,6 +33,7 @@ namespace AppCar
 
         public GPS(string login, Models.Carro carro)
         {
+            distancia = 0;
             latitudeFinal = 0;
             longitudeFinal = 0;
             latitudeInicial = 0;
@@ -39,6 +41,7 @@ namespace AppCar
             this.carro = carro;
             user = login;
             iniciado = false;
+            finalizado = false;
             relController = new RelatorioController();
             dsCarro = new CarroDataService();
             combController = new CombustivelController();
@@ -54,33 +57,49 @@ namespace AppCar
         {
             if (!iniciado)
             {
-                iniciado = true;
-                btnIniciarFinalizarPercurso.Text = "Finalizar Percurso";
-                btnIniciarFinalizarPercurso.BackgroundColor = Color.Red;
-
-                carro.status = "Em movimento";
-                await dsCarro.UpdateCarroAsync(carro);
-                txtStatus.Text = "Status:" + carro.status;
-                txtStatus.TextColor = Color.Red;
-                tempoInicio = DateTime.Now;
-                var locator = CrossGeolocator.Current;
-                locator.DesiredAccuracy = 50;
-                var position = await locator.GetPositionAsync(timeout: new TimeSpan(0, 0, 10));
-                latitudeInicial = position.Latitude;
-                longitudeInicial = position.Longitude;
                 try
                 {
+                    var locator = CrossGeolocator.Current;
+                    locator.DesiredAccuracy = 50;
+                    var position = await locator.GetPositionAsync(timeout: new TimeSpan(0, 0, 10));
+                    iniciado = true;
+                    btnIniciarFinalizarPercurso.Text = "Finalizar Percurso";
+                    btnIniciarFinalizarPercurso.BackgroundColor = Color.Red;
+                    carro.status = "Em movimento";
+                    await dsCarro.UpdateCarroAsync(carro);
+                    txtStatus.Text = "Status:" + carro.status;
+                    txtStatus.TextColor = Color.Red;
+                    tempoInicio = DateTime.Now;
+                    latitudeInicial = position.Latitude;
+                    longitudeInicial = position.Longitude;
+                    CalculaDistancia();
                     CrossExternalMaps.Current.NavigateTo("", latitudeFinal, longitudeFinal);
                 }
                 catch (Exception ex)
                 {
-                    await DisplayAlert("Erro", "Erro ao abrir o mapa.", "OK");
+                    await DisplayAlert("Erro", "Ative sua Localização para continuar.", "OK");
                 }
             }
             else
             {
                 try
                 {
+                    relatorio = new Models.Relatorio
+                    {
+                        carro = carro.placa.Trim(),
+                        endinicial = txtEndinic.Text.Trim(),
+                        endfinal = txtEndfinal.Text.Trim(),
+                        datainicial = tempoInicio,
+                        datafinal = DateTime.Now
+                    };
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Erro:", "Preencha todos os campos.", "OK");
+                }
+                try
+                {
+                    finalizado = true;
                     var locator = CrossGeolocator.Current;
                     locator.DesiredAccuracy = 50;
                     var position = await locator.GetPositionAsync(timeout: new TimeSpan(0, 0, 10));
@@ -89,22 +108,13 @@ namespace AppCar
 
                     Location locationInic = new Location(latitudeInicial, longitudeInicial);
                     Location locationFinal = new Location(latitudeFinal, longitudeFinal);
-                    var distanciaPercorrida = Location.CalculateDistance(locationInic, locationFinal, DistanceUnits.Kilometers);
+                    var distanciaPercorrida = distancia+Location.CalculateDistance(locationInic, locationFinal, DistanceUnits.Kilometers);
 
                     carro.status = "Parado";
                     carro.kmatual += float.Parse((distanciaPercorrida).ToString());
                     await dsCarro.UpdateCarroAsync(carro);
 
-                    relatorio = new Models.Relatorio
-                    {
-                        carro = carro.placa.Trim(),
-                        endinicial = txtEndinic.Text.Trim(),
-                        endfinal = txtEndfinal.Text.Trim(),
-                        datainicial = tempoInicio,
-                        datafinal = DateTime.Now,
-                        kmpercorridos = float.Parse(distanciaPercorrida.ToString()),
-                        custo = 0
-                    };
+                    relatorio.kmpercorridos = float.Parse(distanciaPercorrida.ToString());
 
                     List<Models.Combustivel> combustiveis = await dsCombustivel.GetCombustivelAsync();
                     Models.Combustivel combustivel = combController.GetCombustivelByCadastro(combustiveis, user);
@@ -116,9 +126,33 @@ namespace AppCar
                 }
                 catch (Exception ex)
                 {
-                    await DisplayAlert("Erro:", "Preencha todos os campos.", "OK");
+                    await DisplayAlert("Erro:", "Ative sua Localização para continuar.", "OK");
                 }
             }
+        }
+
+        private async void CalculaDistancia()
+        {
+            try
+            {
+                var locator = CrossGeolocator.Current;
+                locator.DesiredAccuracy = 30;
+                var position = await locator.GetPositionAsync(timeout: new TimeSpan(0, 0, 30));
+                var latitude = position.Latitude;
+                var longitude = position.Longitude;
+
+                if (!finalizado)
+                {
+                    Location locationInic = new Location(latitudeInicial, longitudeInicial);
+                    Location locationFinal = new Location(latitude, longitude);
+                    distancia += Location.CalculateDistance(locationInic, locationFinal, DistanceUnits.Kilometers);
+                    latitudeInicial = latitude;
+                    longitudeInicial = longitude;
+                    txtKmatual.Text = "KM Atual: " + carro.kmatual+distancia.ToString("F") + "KM";
+                    CalculaDistancia();
+                }
+            }
+            catch (Exception ex){}
         }
 
         private void pckCombustivel_SelectedIndexChanged(object sender, EventArgs e)

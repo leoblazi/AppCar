@@ -26,7 +26,7 @@ namespace AppCar
             txtModelo.Text = "Modelo: " + carro.modelo;
             txtPlaca.Text = "Placa: " + carro.placa;
             txtTipocombustivel.Text = "Tipo de combustível: " + carro.tipocombustivel;
-            txtKmatual.Text = "KM atual: " + carro.kmatual;
+            txtKmatual.Text = "KM atual: " + carro.kmatual.ToString("F")+"KM";
             txtKmlitro.Text = "KM por litro: " + carro.kmlitro;
             txtStatus.Text = "Status: " + carro.status;
         }

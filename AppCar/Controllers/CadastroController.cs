@@ -11,7 +11,7 @@ namespace AppCar.Controllers
         public string Cadastro(Models.Cadastro cadastro, string confsenha, List<Models.Cadastro> cadastros)
         {
             //Verifica se há campos vazios
-            if (cadastro.login.Equals("") || cadastro.senha.Equals("") || cadastro.nome.Equals("") || confsenha.Equals(""))
+            if (cadastro.login.Equals("") || cadastro.senha.Equals("") || cadastro.nome.Equals("") || cadastro.email.Equals("") || cadastro.cpf.Equals("") || confsenha.Equals(""))
                 return "Erro;Preencha todos os campos;OK";
 
             //Verifica se as senhas digitadas coincidem
@@ -137,6 +137,56 @@ namespace AppCar.Controllers
                     cadastro = cadastros[i];
             }
             return cadastro;
+        }
+
+        public string RecuperarSenha(string login, string email, string cpf, List<Models.Cadastro> cadastros)
+        {
+            //Verifica se há campos vazios
+            if (login.Equals("") || email.Equals("") || cpf.Equals(""))
+                return "Erro;Preencha todos os campos;OK";
+
+            //Verifica login
+            for (int i = 0; i < cadastros.Count; i++)
+            {
+                if (cadastros[i].login.Trim().Equals(login))
+                {
+                    if (cadastros[i].email.Trim().Equals(email) && cadastros[i].cpf.Trim().Equals(cpf))
+                    {
+                        return cadastros[i].id+";;";
+                    }
+                    return "Erro;Dados incorretos;OK";
+                }
+            }
+            return "Erro;Usuário não cadastrado;OK";
+        }
+
+        public string RedefinirSenha(string login, string senha, string confsenha, List<Models.Cadastro> cadastros)
+        {
+            //Verifica se há campos vazios
+            if (senha.Equals("") || confsenha.Equals(""))
+                return "Erro;Preencha todos os campos;OK";
+
+            //Verifica se as senhas digitadas coincidem
+            if (!senha.Equals(confsenha))
+                return "Erro;As senhas digitadas não coincidem;OK";
+
+            //Altera a senha
+            for (int i = 0; i < cadastros.Count; i++)
+            {
+                if (cadastros[i].login.Trim().Equals(login))
+                {
+                    MudaSenha(cadastros[i], senha);
+                    return "Sucesso;Senha redefinida com sucesso!;OK";
+                }
+            }
+            return "Erro;Perfil não encontrado;OK"; //Se passar por todas as verificações, retorna uma mensagem de "sucesso"
+        }
+
+        public async void MudaSenha(Models.Cadastro cadastro, string senha)
+        {
+            CadastroDataService ds = new CadastroDataService();
+            cadastro.senha = senha;
+            await ds.UpdateCadastroAsync(cadastro);
         }
     }
 }

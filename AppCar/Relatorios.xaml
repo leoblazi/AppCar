@@ -14,7 +14,7 @@
             <ListView x:Name="listaRelatorios" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
+                        <ViewCell >
                             <ScrollView>
                                 <StackLayout Spacing="20" Padding="20">
                                     <Label Text="Endereço inicial:"
@@ -27,32 +27,32 @@
                                            HorizontalTextAlignment="Start"
                                            FontSize="Large"/>
                                     <Label Text="{Binding endfinal}"
-                                        HorizontalTextAlignment="Start"
-                                        FontSize="Medium"/>
+                                           HorizontalTextAlignment="Start"
+                                           FontSize="Medium"/>
                                     <Label Text="Horário de início:"
                                            HorizontalTextAlignment="Start"
                                            FontSize="Large"/>
                                     <Label Text="{Binding datainicial}"
-                                        HorizontalTextAlignment="Start"
-                                        FontSize="Medium"/>
+                                           HorizontalTextAlignment="Start"
+                                           FontSize="Medium"/>
                                     <Label Text="Horário final:"
                                            HorizontalTextAlignment="Start"
                                            FontSize="Large"/>
                                     <Label Text="{Binding datafinal}"
-                                        HorizontalTextAlignment="Start"
-                                        FontSize="Medium"/>
+                                           HorizontalTextAlignment="Start"
+                                           FontSize="Medium"/>
                                     <Label Text="KM percorridos:"
                                            HorizontalTextAlignment="Start"
                                            FontSize="Large"/>
                                     <Label Text="{Binding kmpercorridos}"
-                                        HorizontalTextAlignment="Start"
-                                        FontSize="Medium"/>
+                                           HorizontalTextAlignment="Start"
+                                           FontSize="Medium"/>
                                     <Label Text="Custo da viagem:"
                                            HorizontalTextAlignment="Start"
                                            FontSize="Large"/>
                                     <Label Text="{Binding custo}"
-                                        HorizontalTextAlignment="Start"
-                                        FontSize="Medium"/>
+                                           HorizontalTextAlignment="Start"
+                                           FontSize="Medium"/>
                                 </StackLayout>
                             </ScrollView>
                         </ViewCell>

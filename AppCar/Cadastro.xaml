@@ -19,7 +19,28 @@
                        BackgroundColor="White"
                        MaxLength="20"
                        x:Name="txtCadLogin"/>
-                
+
+                <Entry Keyboard="Text"
+                       Placeholder="Nome"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       MaxLength="50"
+                       x:Name="txtCadNome"/>
+
+                <Entry Keyboard="Text"
+                       Placeholder="Email"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       MaxLength="60"
+                       x:Name="txtCadEmail"/>
+
+                <Entry Keyboard="Numeric"
+                       Placeholder="CPF"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       MaxLength="11"
+                       x:Name="txtCadCpf"/>
+
                 <Entry Placeholder="Senha"
                        PlaceholderColor="Gray"
                        BackgroundColor="White"
@@ -34,13 +55,6 @@
                        IsPassword="True"
                        x:Name="txtConfSenha"/>
 
-                <Entry Keyboard="Text"
-                       Placeholder="Nome"
-                       PlaceholderColor="Gray"
-                       BackgroundColor="White"
-                       MaxLength="50"
-                       x:Name="txtCadNome"/>
-                
                 <Button Text="Finalizar cadastro"
                         TextColor="White" BackgroundColor="Blue"
                         Clicked="BtnFinalizarCadastro_ClickedAsync"

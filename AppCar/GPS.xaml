@@ -13,13 +13,13 @@
                 <Entry Placeholder="Endereço inicial" 
                        PlaceholderColor="Gray"
                        BackgroundColor="White"
-                       MaxLength="20"
+                       MaxLength="100"
                        x:Name="txtEndinic"/>
                 
                 <Entry Placeholder="Endereço final" 
                        PlaceholderColor="Gray"
                        BackgroundColor="White"
-                       MaxLength="20"
+                       MaxLength="100"
                        x:Name="txtEndfinal"/>
 
                 <Picker x:Name="pckCombustivel" HorizontalOptions="FillAndExpand"

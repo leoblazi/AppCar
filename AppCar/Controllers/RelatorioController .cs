@@ -13,8 +13,10 @@ namespace AppCar.Controllers
             List<Models.Relatorio> relatorios = new List<Models.Relatorio>();  //Lista para retornar os relatórios do carro
             for (int i = 0; i < lRelatorios.Count; i++)
             {
-                if (lRelatorios[i].carro.Trim().Equals(carro.placa))
+                if (lRelatorios[i].carro.Trim().Equals(carro.placa.Trim()))
+                {
                     relatorios.Add(lRelatorios[i]); //Adiciona os relatórios que pertencerem ao carro
+                }
             }
             return relatorios;
         }

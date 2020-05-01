@@ -31,6 +31,12 @@
     <Compile Update="EditarLogin.xaml.cs">
       <DependentUpon>EditarLogin.xaml</DependentUpon>
     </Compile>
+    <Compile Update="RedefinirSenha.xaml.cs">
+      <DependentUpon>RedefinirSenha.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="RecuperarSenha.xaml.cs">
+      <DependentUpon>RecuperarSenha.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

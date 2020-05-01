@@ -29,6 +29,12 @@ namespace AppCar
             Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
+        private async void BtnEsqueciSenha_ClickedAsync(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RecuperarSenha());
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+        }
+
         private async void BtnLogin_ClickedAsync(object sender, EventArgs e)
         {
             try{

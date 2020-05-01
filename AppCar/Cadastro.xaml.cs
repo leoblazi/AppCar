@@ -42,7 +42,9 @@ namespace AppCar
                 {
                     login = txtCadLogin.Text.Trim(),
                     senha = txtCadSenha.Text.Trim(),
-                    nome = txtCadNome.Text.Trim()
+                    nome = txtCadNome.Text.Trim(),
+                    email = txtCadEmail.Text.Trim(),
+                    cpf = txtCadCpf.Text.Trim()
                 };
                 string confsenha = txtConfSenha.Text.Trim();
 
