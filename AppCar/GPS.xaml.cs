@@ -48,7 +48,7 @@ namespace AppCar
             dsCombustivel = new CombustivelDataService();
             InitializeComponent();
             txtModelo.Text = carro.modelo;
-            txtKmatual.Text = "KM Atual: " + carro.kmatual.ToString("F") + "KM";
+            txtKmatual.Text = "KM Atual: " + Math.Round(carro.kmatual, 3).ToString() + "KM";
             txtPlaca.Text = "Placa: " + carro.placa;
             txtStatus.Text = "Status:" + carro.status;
         }
@@ -69,11 +69,11 @@ namespace AppCar
                     await dsCarro.UpdateCarroAsync(carro);
                     txtStatus.Text = "Status:" + carro.status;
                     txtStatus.TextColor = Color.Red;
-                    tempoInicio = DateTime.Now;
+                    tempoInicio = DateTime.UtcNow;
                     latitudeInicial = position.Latitude;
                     longitudeInicial = position.Longitude;
                     CalculaDistancia();
-                    CrossExternalMaps.Current.NavigateTo("", latitudeFinal, longitudeFinal);
+                    await CrossExternalMaps.Current.NavigateTo("", latitudeFinal, longitudeFinal);
                 }
                 catch (Exception ex)
                 {
@@ -90,7 +90,7 @@ namespace AppCar
                         endinicial = txtEndinic.Text.Trim(),
                         endfinal = txtEndfinal.Text.Trim(),
                         datainicial = tempoInicio,
-                        datafinal = DateTime.Now
+                        datafinal = DateTime.UtcNow
                     };
                 }
                 catch (Exception ex)
@@ -148,7 +148,7 @@ namespace AppCar
                     distancia += Location.CalculateDistance(locationInic, locationFinal, DistanceUnits.Kilometers);
                     latitudeInicial = latitude;
                     longitudeInicial = longitude;
-                    txtKmatual.Text = "KM Atual: " + carro.kmatual+distancia.ToString("F") + "KM";
+                    txtKmatual.Text = "KM Atual: " + Math.Round((carro.kmatual+distancia), 3).ToString() + "KM";
                     CalculaDistancia();
                 }
             }

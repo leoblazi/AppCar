@@ -9,7 +9,12 @@
     <ScrollView>
         <StackLayout Padding="20" Spacing="20">
             <Image Source="Logo.png"/>
-            
+
+            <Label Text="Seu login é:"
+                   HorizontalTextAlignment="Center" 
+                   FontSize="Medium"
+                   x:Name="txtLogin"/>
+
             <Label Text="Redefinir Senha"
                    HorizontalTextAlignment="Center" 
                    FontSize="Large"/>

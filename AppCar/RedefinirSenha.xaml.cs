@@ -20,6 +20,7 @@ namespace AppCar
         CadastroController controller;
         public RedefinirSenha(string login) {
             InitializeComponent();
+            txtLogin.Text = "Seu login é: "+login;
             this.login = login;
             ds = new CadastroDataService();
             controller = new CadastroController();
@@ -27,7 +28,7 @@ namespace AppCar
 
         private async void BtnVoltar(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new RecuperarSenha());
+            await Navigation.PushAsync(new RecuperarLogin());
             Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 

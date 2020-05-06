@@ -8,25 +8,24 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using AppCar.Service;
+using AppCar.Controllers;
 
 namespace AppCar
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Veiculo : ContentPage
     {
-        CarroDataService ds;
         Models.Carro carro;
         string user;
         public Veiculo(string login, Models.Carro carro)
         {
-            ds = new CarroDataService();
             user = login;
             this.carro = carro;
             InitializeComponent();
             txtModelo.Text = "Modelo: " + carro.modelo;
             txtPlaca.Text = "Placa: " + carro.placa;
             txtTipocombustivel.Text = "Tipo de combustível: " + carro.tipocombustivel;
-            txtKmatual.Text = "KM atual: " + carro.kmatual.ToString("F")+"KM";
+            txtKmatual.Text = "KM atual: " + Math.Round(carro.kmatual, 3).ToString()+"KM";
             txtKmlitro.Text = "KM por litro: " + carro.kmlitro;
             txtStatus.Text = "Status: " + carro.status;
         }
@@ -54,7 +53,26 @@ namespace AppCar
             var escolha = await DisplayActionSheet("Excluir carro?", "Sim", "Não");
             if (escolha.Equals("Sim"))
             {
-                await ds.DeleteCarroAsync(carro); //Exclui o carro
+                CarroController controller = new CarroController();
+                //Exclui o carro e todos os relatórios dele
+                controller.DeleteCarro(carro);
+
+                CarroDataService ds = new CarroDataService();
+                bool b;
+                //Espera o carro ser excluido
+                do
+                {
+                    b = false;
+                    foreach (Models.Carro c in await ds.GetCarroAsync())
+                    {
+                        if (carro.placa.Trim() == c.placa.Trim())
+                        {
+                            b = true;
+                            break;
+                        }
+                    }
+                } while (b);
+
                 await Navigation.PushAsync(new GerenciarVeiculos(user));
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
             }

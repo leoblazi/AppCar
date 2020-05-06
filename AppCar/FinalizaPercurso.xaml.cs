@@ -20,10 +20,10 @@ namespace AppCar
             this.carro = carro;
             user = login;
             InitializeComponent();
-            txtKmpercorridos.Text = "KM percorridos: "+relatorio.kmpercorridos.ToString("F")+"KM";
-            txtCusto.Text = relatorio.custo.ToString("F") + "R$";
+            txtKmpercorridos.Text = "KM percorridos: "+ Math.Round(relatorio.kmpercorridos, 3).ToString()+"KM";
+            txtCusto.Text = relatorio.custo.ToString("C");
             txtModelo.Text = carro.modelo;
-            txtKmatual.Text = "KM Atual: " + carro.kmatual.ToString("F") + "KM";
+            txtKmatual.Text = "KM Atual: " + Math.Round(carro.kmatual, 3).ToString() + "KM";
             txtPlaca.Text = "Placa: " + carro.placa;
             txtStatus.Text = "Status:" + carro.status;
         }

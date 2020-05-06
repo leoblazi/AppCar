@@ -18,11 +18,13 @@ namespace AppCar.Controllers
             if (!cadastro.senha.Equals(confsenha))
                 return "Erro;As senhas digitadas não coincidem;OK";
 
-            //Verifica se o usuário já está cadastrado
+            //Verifica se o login ou cpf já está cadastrado
             for (int i = 0; i < cadastros.Count; i++)
             {
                 if (cadastros[i].login.Trim().Equals(cadastro.login))
                     return "Erro;Login já cadastrado;OK";
+                if (cadastros[i].cpf.Trim().Equals(cadastro.cpf))
+                    return "Erro;CPF já cadastrado;OK";
             }
             return "Sucesso;Perfil cadastrado com sucesso!;OK"; //Se passar por todas as verificações, retorna uma mensagem de "sucesso"
         }
@@ -139,25 +141,19 @@ namespace AppCar.Controllers
             return cadastro;
         }
 
-        public string RecuperarSenha(string login, string email, string cpf, List<Models.Cadastro> cadastros)
+        public string RecuperarLogin(string email, string cpf, List<Models.Cadastro> cadastros)
         {
             //Verifica se há campos vazios
-            if (login.Equals("") || email.Equals("") || cpf.Equals(""))
+            if (email.Equals("") || cpf.Equals(""))
                 return "Erro;Preencha todos os campos;OK";
 
-            //Verifica login
+            //Verifica email e cpf
             for (int i = 0; i < cadastros.Count; i++)
             {
-                if (cadastros[i].login.Trim().Equals(login))
-                {
-                    if (cadastros[i].email.Trim().Equals(email) && cadastros[i].cpf.Trim().Equals(cpf))
-                    {
-                        return cadastros[i].id+";;";
-                    }
-                    return "Erro;Dados incorretos;OK";
-                }
+                if (cadastros[i].cpf.Trim().Equals(cpf) && cadastros[i].email.Trim().Equals(email))
+                    return cadastros[i].login+";;";
             }
-            return "Erro;Usuário não cadastrado;OK";
+            return "Erro;Dados incorretos;OK";
         }
 
         public string RedefinirSenha(string login, string senha, string confsenha, List<Models.Cadastro> cadastros)

@@ -25,8 +25,8 @@ namespace AppCar.Controllers
                 return "Erro;\"Km(s) rodados\" não pode ser negativo;OK";
 
             //Verifica se Km por litro é negativo
-            if (Convert.ToInt32(carro.kmlitro) < 0)
-                return "Erro;\"Km(s) por litro\" não pode ser negativo;OK";
+            if (Convert.ToInt32(carro.kmlitro) <= 0)
+                return "Erro;\"Km(s) por litro\" não pode ser menor nem igual a zero;OK";
 
             return "Sucesso;Carro cadastrado com sucesso!;OK"; //Se passar por todas as verificações, retorna uma mensagem de "sucesso"
         }
@@ -51,8 +51,8 @@ namespace AppCar.Controllers
                 return "Erro;\"Km atual\" não pode ser negativo;OK";
 
             //Verifica se Km por litro é negativo
-            if (Convert.ToInt32(novoCarro.kmlitro) < 0)
-                return "Erro;\"Km por litro\" não pode ser negativo;OK";
+            if (Convert.ToInt32(novoCarro.kmlitro) <= 0)
+                return "Erro;\"Km por litro\" não pode ser menor nem igual a zero;OK";
 
             UpdateCarro(novoCarro, carro);
             return "Sucesso;Carro alterado com sucesso!;OK"; //Se passar por todas as verificações, retorna uma mensagem de "sucesso"
@@ -98,6 +98,20 @@ namespace AppCar.Controllers
                     userCars.Add(carros[i]); //Adiciona os carros que pertencerem ao usuário
             }
             return userCars;
+        }
+
+        public async void DeleteCarro(Models.Carro carro)
+        {
+            RelatorioDataService rds = new RelatorioDataService();
+            foreach (Models.Relatorio relatorio in await rds.GetRelatorioAsync())
+            {
+                if (relatorio.carro.Equals(carro.placa))
+                {
+                    await rds.DeleteRelatorioAsync(relatorio);
+                }
+            }
+            CarroDataService ds = new CarroDataService();
+            await ds.DeleteCarroAsync(carro);
         }
     }
 }
