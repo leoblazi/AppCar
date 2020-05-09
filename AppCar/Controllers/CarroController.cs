@@ -20,6 +20,10 @@ namespace AppCar.Controllers
                 if (carros[i].placa.Trim().Equals(carro.placa))
                     return "Erro;Carro já cadastrado;OK";
             }
+            //Verifica se a placa contém todos os caracteres
+            if (carro.placa.Trim().Length<8)
+                return "Erro;A placa deve conter todos os caracteres;OK";
+
             //Verifica se Km rodados é negativo
             if (Convert.ToInt32(carro.kmatual)<0)
                 return "Erro;\"Km(s) rodados\" não pode ser negativo;OK";

@@ -23,10 +23,9 @@ namespace AppCar
             controller = new CadastroController();
         }
 
-        private async void BtnVoltar(object sender, EventArgs e)
+        private void BtnVoltar(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
         }
 
         private async void BtnConfirmar(object sender, EventArgs e)

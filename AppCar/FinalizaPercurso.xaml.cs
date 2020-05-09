@@ -21,7 +21,7 @@ namespace AppCar
             user = login;
             InitializeComponent();
             txtKmpercorridos.Text = "KM percorridos: "+ Math.Round(relatorio.kmpercorridos, 3).ToString()+"KM";
-            txtCusto.Text = relatorio.custo.ToString("C");
+            txtCusto.Text = "R$"+relatorio.custo.ToString("F");
             txtModelo.Text = carro.modelo;
             txtKmatual.Text = "KM Atual: " + Math.Round(carro.kmatual, 3).ToString() + "KM";
             txtPlaca.Text = "Placa: " + carro.placa;

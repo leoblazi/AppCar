@@ -8,9 +8,9 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="20" Padding="20">
-                <Image Source="logocad.png"/>
-                
-                <Label Text="usuario, nesta tela você pode editar os seus dados"
+                <Image Source="Logo.png"/>
+
+                <Label Text="Editar cadastro"
                        HorizontalTextAlignment="Center"
                        FontSize="Medium"
                        x:Name="ltitulo"/>

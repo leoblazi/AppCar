@@ -15,46 +15,30 @@ namespace AppCar
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditarCadastro : ContentPage
     {
-        List<Models.Cadastro> cadastros;
-        Models.Cadastro cadastro;
-        CadastroDataService ds;
-        CadastroController controller;
+        string user;
         public EditarCadastro(string login)
         {
-            ds = new CadastroDataService();
-            controller = new CadastroController();
-            SetCadastros(login);
-        }
-
-        private async void SetCadastros(string login)
-        {
-            cadastros =  await ds.GetCadastroAsync();
-            cadastro = controller.GetCadastro(login, cadastros);
+            user = login;
             InitializeComponent();
-            ltitulo.Text = cadastro.nome.Trim() + ", nesta tela você pode editar os seus dados";
         }
 
         private async void AlterarLogin_ClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new EditarLogin(cadastro));
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            await Navigation.PushAsync(new EditarLogin(user));
         }
 
         private async void AlterarSenha_ClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new EditarSenha(cadastro));
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            await Navigation.PushAsync(new EditarSenha(user));
         }
         private async void AlterarNome_ClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new EditarNome(cadastro));
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            await Navigation.PushAsync(new EditarNome(user));
         }
 
-        private async void Voltar_ClickedAsync(object sender, EventArgs e)
+        private void Voltar_ClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Inicial(cadastro.login.Trim()));
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
         }
     }
 }

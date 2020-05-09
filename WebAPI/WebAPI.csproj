@@ -168,6 +168,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\LembreteController.cs" />
     <Compile Include="Controllers\RelatorioController.cs" />
     <Compile Include="Controllers\CombustivelController.cs" />
     <Compile Include="Controllers\CarroController .cs" />
@@ -177,6 +178,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ILembreteRepositorio.cs" />
+    <Compile Include="Models\Lembrete.cs" />
+    <Compile Include="Models\LembreteDallHelper.cs" />
+    <Compile Include="Models\LembreteRepositorio.cs" />
     <Compile Include="Models\RelatorioRepositorio.cs" />
     <Compile Include="Models\CombustivelRepositorio.cs" />
     <Compile Include="Models\CarroRepositorio .cs" />

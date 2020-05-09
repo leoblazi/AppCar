@@ -24,10 +24,9 @@ namespace AppCar
             controller = new CadastroController();
         }
 
-        private async void BtnVoltarCadastro_ClickedAsync(object sender, EventArgs e)
+        private void BtnVoltarCadastro_ClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
         }
 
         private async void BtnFinalizarCadastro_ClickedAsync(object sender, EventArgs e)
@@ -56,8 +55,11 @@ namespace AppCar
                 if (msg[0].Equals("Sucesso"))
                 {
                     await ds.AddCadastroAsync(cadastro);
-                    await Navigation.PushAsync(new MainPage());
-                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                    //Adiciona os lembretes padrão ao cirar um novo perfil
+                    LembreteController lc = new LembreteController();
+                    lc.CriarLembretes(cadastro);
+
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                 }
             }
             catch (Exception ex)

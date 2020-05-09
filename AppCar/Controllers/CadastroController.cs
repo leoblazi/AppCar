@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 using AppCar.Service;
@@ -17,6 +18,10 @@ namespace AppCar.Controllers
             //Verifica se as senhas digitadas coincidem
             if (!cadastro.senha.Equals(confsenha))
                 return "Erro;As senhas digitadas não coincidem;OK";
+
+            //Verifica se a placa contém todos os caracteres
+            if (cadastro.cpf.Trim().Length < 11)
+                return "Erro;O CPF deve conter todos os caracteres;OK";
 
             //Verifica se o login ou cpf já está cadastrado
             for (int i = 0; i < cadastros.Count; i++)
@@ -48,20 +53,26 @@ namespace AppCar.Controllers
                         return "Erro;Login já cadastrado;OK";
                 }
             }
-            UpdateLogin(novoCadastro, cadastro);
+            UpdateLogin(novoCadastro, cadastro, cadastros);
+
             return "Sucesso;Login alterado com sucesso!;OK"; //Se passar por todas as verificações, retorna uma mensagem de "sucesso"
         }
-        private async void UpdateLogin(Models.Cadastro novoCadastro, Models.Cadastro cadastro)
+        private async void UpdateLogin(Models.Cadastro novoCadastro, Models.Cadastro cadastro, List<Models.Cadastro> cadastros)
         {
             CadastroDataService ds = new CadastroDataService();
             if (!novoCadastro.login.Equals(cadastro.login.Trim())) //Se o login foi alterado
             {
+                novoCadastro.cpf = cadastro.cpf;
+                cadastro.cpf = "";
+                await ds.UpdateCadastroAsync(cadastro);
                 await ds.AddCadastroAsync(novoCadastro); //Adciona o cadastro com o login alterado
 
                 CarroDataService carrods = new CarroDataService();
                 CombustivelDataService combds = new CombustivelDataService();
+                LembreteDataService lemds = new LembreteDataService();
                 List<Models.Carro> carros = await carrods.GetCarroAsync();
                 List<Models.Combustivel> combustiveis = await combds.GetCombustivelAsync();
+                List<Models.Lembrete> lembretes = await lemds.GetLembreteAsync();
 
                 for (int i = 0; i < carros.Count; i++)
                 {
@@ -81,7 +92,6 @@ namespace AppCar.Controllers
                         await carrods.UpdateCarroAsync(carro);
                     }
                 }
-
                 for (int i = 0; i < combustiveis.Count; i++)
                 {
                     if (combustiveis[i].login.Trim().Equals(cadastro.login.Trim())) //Para cada combustivel com o login, muda para o login alterado
@@ -91,7 +101,16 @@ namespace AppCar.Controllers
                         await combds.UpdateCombustivelAsync(combustivel);
                     }
                 }
-                await ds.DeleteCadastroAsync(cadastro); //Deleta o cadastro com o login antigo
+                for (int i = 0; i < lembretes.Count; i++)
+                {
+                    if (lembretes[i].login.Trim().Equals(cadastro.login.Trim())) //Para cada lembrete com o login, muda para o login alterado
+                    {
+                        Models.Lembrete lembrete = lembretes[i];
+                        lembrete.login = novoCadastro.login;
+                        await lemds.UpdateLembreteAsync(lembrete);
+                    }
+                }
+                await ds.DeleteCadastroAsync(cadastro);
             }
         }
 

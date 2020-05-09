@@ -26,10 +26,9 @@ namespace AppCar
             user = login;
         }
 
-        private async void btnVoltarAsync(object sender, EventArgs e)
+        private void btnVoltarAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Inicial(user));
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
         }
 
         private async void btnCadastrarVeiculoAsync(object sender, EventArgs e)

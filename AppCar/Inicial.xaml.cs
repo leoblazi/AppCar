@@ -20,39 +20,33 @@ namespace AppCar
         {
             InitializeComponent();
             user = login;
-            lBemvindo.Text = "Seja bem - vindo, "+login.Trim()+"!";
+            lBemvindo.Text = "Seja bem-vindo(a), "+login.Trim()+"!";
         }
 
         private async void BtnGerenciarVeiculos_ClickedAsync(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new GerenciarVeiculos(user));
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
         private async void BtnAdicionar_ClickedAsync(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AdicionarVeiculo(user));
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
         private async void BtnCombustivel_ClickedAsync(object sender, EventArgs e) {
             await Navigation.PushAsync(new Combustivel(user));
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
         private async void BtnEditar_ClickedAsync(object sender, EventArgs e) {
             await Navigation.PushAsync(new EditarCadastro(user));
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
-        private async void BtnDicas_Clicked(object sender, EventArgs e) {
-            await Navigation.PushAsync(new Dicas(user));
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+        private async void BtnLembretes_Clicked(object sender, EventArgs e) {
+            await Navigation.PushAsync(new Lembretes(user));
         }
 
-        private async void BtnSair_ClickedAsync(object sender, EventArgs e) {
-            await Navigation.PushAsync(new MainPage());
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+        private void BtnSair_ClickedAsync(object sender, EventArgs e) {
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
         }
     }
 }

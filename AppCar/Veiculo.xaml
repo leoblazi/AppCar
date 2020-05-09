@@ -8,8 +8,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="20" Padding="20">
-                
-                <Image Source="Logo.png"/>
+                <Image Source="logocad.png"/>
 
                 <Button Text="Iniciar Percurso"
                         TextColor="White" 

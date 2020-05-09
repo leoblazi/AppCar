@@ -18,31 +18,37 @@ namespace AppCar
         CadastroDataService ds;
         CadastroController controller;
         Models.Cadastro cadastro;
-        public EditarSenha(Models.Cadastro cadastro)
+        List<Models.Cadastro> cadastros;
+        public EditarSenha(string login)
         {
-            InitializeComponent();
             ds = new CadastroDataService();
             controller = new CadastroController();
-            this.cadastro = cadastro;
+            SetCadastros(login);
+        }
+        private async void SetCadastros(string login)
+        {
+            cadastros = await ds.GetCadastroAsync();
+            cadastro = controller.GetCadastro(login, cadastros);
+            InitializeComponent();
         }
 
         private async void Salvar_ClickedAsync(object sender, EventArgs e)
         {
             try
             {
-                string confSenha;
-                string result; //Mensagem a ser exibida
-
                 //Recebe informações
                 Models.Cadastro novoCadastro = new Models.Cadastro
                 {
                     id = cadastro.id,
                     login = cadastro.login.Trim(),
                     senha = txtNovaSenha.Text.Trim(),
-                    nome = cadastro.nome.Trim()
+                    nome = cadastro.nome.Trim(),
+                    email = cadastro.email.Trim(),
+                    cpf = cadastro.cpf.Trim()
                 };
-                confSenha = txtConfSenha.Text.Trim();
+                string confSenha = txtConfSenha.Text.Trim();
 
+                string result; //Mensagem a ser exibida
                 result = controller.AlterarSenha(novoCadastro, cadastro, confSenha);
 
                 var msg = System.Text.RegularExpressions.Regex.Split(result, ";"); //Faz a separação da mensagem em 3 strings
@@ -51,8 +57,7 @@ namespace AppCar
                 if (msg[0].Equals("Sucesso"))
                 {
                     await ds.UpdateCadastroAsync(novoCadastro);
-                    await Navigation.PushAsync(new EditarCadastro(novoCadastro.login));
-                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                 }
             }
             catch (Exception ex)
@@ -61,10 +66,9 @@ namespace AppCar
             }
         }
 
-        private async void Voltar_ClickedAsync(object sender, EventArgs e)
+        private void Voltar_ClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new EditarCadastro(cadastro.login.Trim()));
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
         }
     }
 }

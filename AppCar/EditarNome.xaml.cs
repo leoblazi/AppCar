@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using AppCar.Service;
+using AppCar.Controllers;
 
 namespace AppCar
 {
@@ -15,13 +16,21 @@ namespace AppCar
     public partial class EditarNome : ContentPage
     {
         CadastroDataService ds;
+        CadastroController controller;
         Models.Cadastro cadastro;
-        public EditarNome(Models.Cadastro cadastro)
+        List<Models.Cadastro> cadastros;
+        public EditarNome(string login)
         {
-            InitializeComponent();
+            controller = new CadastroController();
             ds = new CadastroDataService();
+            SetCadastros(login);
+        }
+        private async void SetCadastros(string login)
+        {
+            cadastros = await ds.GetCadastroAsync();
+            cadastro = controller.GetCadastro(login, cadastros);
+            InitializeComponent();
             txtNome.Text = cadastro.nome.Trim();
-            this.cadastro = cadastro;
         }
 
         private async void Salvar_ClickedAsync(object sender, EventArgs e)
@@ -34,7 +43,9 @@ namespace AppCar
                     id = cadastro.id,
                     login = cadastro.login.Trim(),
                     senha = cadastro.senha.Trim(),
-                    nome = txtNome.Text.Trim()
+                    nome = txtNome.Text.Trim(),
+                    email = cadastro.email.Trim(),
+                    cpf = cadastro.cpf.Trim()
                 };
 
                 if (novoCadastro.nome.Equals(""))
@@ -43,8 +54,7 @@ namespace AppCar
                 {
                     await DisplayAlert("Sucesso:", "Nome alterado com sucesso!", "OK");
                     await ds.UpdateCadastroAsync(novoCadastro);
-                    await Navigation.PushAsync(new EditarCadastro(novoCadastro.login));
-                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                 }
             }
             catch (Exception ex)
@@ -53,10 +63,9 @@ namespace AppCar
             }
         }
 
-        private async void Voltar_ClickedAsync(object sender, EventArgs e)
+        private void Voltar_ClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new EditarCadastro(cadastro.login.Trim()));
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
         }
     }
 }

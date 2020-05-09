@@ -11,7 +11,8 @@
 
                 <Label Text="Escolha o veículo" 
                        HorizontalTextAlignment="Center" 
-                       FontSize="Medium"/>
+                       FontSize="Medium"
+                       x:Name="txtTitulo"/>
 
                 <ListView x:Name="listaCarros" HasUnevenRows="True">
                     <ListView.ItemTemplate>

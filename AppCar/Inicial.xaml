@@ -10,12 +10,12 @@
         <ScrollView>
             <StackLayout Spacing="20" Padding="20">
                 <Image Source="Logo.png"/>
-                <Label Text="Seja bem-vindo, usuario!" 
-                       HorizontalTextAlignment="Center" 
+                <Label Text="" 
+                       HorizontalTextAlignment="Center"
                        FontSize="Medium"
                        x:Name="lBemvindo"/>
                 
-                <Button Text="Seus veículos" 
+                <Button Text="Meus veículos" 
                         TextColor="White" 
                         BackgroundColor="Blue" 
                         Clicked="BtnGerenciarVeiculos_ClickedAsync" 
@@ -43,16 +43,16 @@
                         BorderRadius="50"
                         x:Name="EditarCadastro"/>
 
-                <Button Text="Dicas para seus veículos" 
+                <Button Text="Meus Lembretes" 
                         TextColor="White" 
                         BackgroundColor="Blue" 
-                        Clicked="BtnDicas_Clicked" 
+                        Clicked="BtnLembretes_Clicked" 
                         BorderRadius="50"
                         x:Name="txtDicas"/>
 
                 <Button Text="Sair" 
                         TextColor="White" 
-                        BackgroundColor="Blue" 
+                        BackgroundColor="Red" 
                         Clicked="BtnSair_ClickedAsync" 
                         BorderRadius="50"
                         x:Name="txtSair"/>
