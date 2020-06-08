@@ -37,36 +37,44 @@ namespace AppCar
 
         private async void BtnLogin_ClickedAsync(object sender, EventArgs e)
         {
-            try{
+            try
+            {
                 List<Models.Cadastro> cadastros = await ds.GetCadastroAsync(); //Lista com todos os cadastros
-                string result; //Mensagem a ser exibida
-                //Recebe os dados
-                string login = txtUsuario.Text.Trim();
-                string senha = txtSenha.Text.Trim();
-
-                result = controller.Login(login, senha, cadastros);
-
-                var msg = System.Text.RegularExpressions.Regex.Split(result, ";"); //Faz a separação da mensagem em 3 strings
-                if (!msg[0].Equals("Erro"))
+                try
                 {
-                    LembreteDataService ds = new LembreteDataService();
-                    //Carrega todos os lembretes
-                    List<Models.Lembrete> lembretes = await ds.GetLembreteAsync();
+                    string result; //Mensagem a ser exibida
+                                   //Recebe os dados
+                    string login = txtUsuario.Text.Trim();
+                    string senha = txtSenha.Text.Trim();
 
-                    LembreteController lc = new LembreteController();
-                    //Retorna um lembrete aleatório, se houver
-                    string lembrete = lc.GetLembrete(login, lembretes);
+                    result = controller.Login(login, senha, cadastros);
 
-                    await Navigation.PushAsync(new Inicial(login));
-                    Limpar();
-                    await DisplayAlert(msg[0], lembrete, msg[2]); //Exibe um lembrete aleatório ao usuário, além da mensagem padrão
+                    var msg = System.Text.RegularExpressions.Regex.Split(result, ";"); //Faz a separação da mensagem em 3 strings
+                    if (!msg[0].Equals("Erro"))
+                    {
+                        LembreteDataService ds = new LembreteDataService();
+                        //Carrega todos os lembretes
+                        List<Models.Lembrete> lembretes = await ds.GetLembreteAsync();
+
+                        LembreteController lc = new LembreteController();
+                        //Retorna um lembrete aleatório, se houver
+                        string lembrete = lc.GetLembrete(login, lembretes);
+
+                        await Navigation.PushAsync(new Inicial(login));
+                        Limpar();
+                        await DisplayAlert(msg[0], lembrete, msg[2]); //Exibe um lembrete aleatório ao usuário, além da mensagem padrão
+                    }
+                    else
+                        await DisplayAlert(msg[0], msg[1], msg[2]);
                 }
-                else
-                    await DisplayAlert(msg[0], msg[1], msg[2]);
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Erro:", "Preencha todos os campos", "OK");
+                }
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Erro:", ex.Message, "OK");
+                await DisplayAlert("Erro:", "Sem conexão com a internet", "OK");
             }
         }
 

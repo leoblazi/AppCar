@@ -40,7 +40,7 @@ namespace AppCar
 
         private async void btnAlteraValor_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AlterarValorCombustivel(combustivel));
+            await Navigation.PushAsync(new AlterarValorCombustivel(user));
             Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 

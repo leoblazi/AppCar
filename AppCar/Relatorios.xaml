@@ -3,15 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behavior="clr-namespace:AppCar.Behaviors"
              mc:Ignorable="d"
              x:Class="AppCar.Relatorios">
     <ContentPage.Content>
         <StackLayout>
-            <Image Source="logocad.png"/>
-            
             <Label Text="Relatórios:"
                    HorizontalTextAlignment="Center"
-                   FontSize="Large"/>
+                   FontSize="Large"
+                   x:Name="txtTitulo"/>
+            <Label Text="Nenhum relatório encontrado"
+                   HorizontalTextAlignment="Center"
+                   FontSize="Medium"
+                   IsVisible="False"
+                   x:Name="txtVazio"/>
             
             <ListView x:Name="listaRelatorios" HasUnevenRows="True">
                 <ListView.ItemTemplate>
@@ -21,53 +26,73 @@
                                 <StackLayout Spacing="20" Padding="20">
                                     <Label Text="Endereço inicial:"
                                            HorizontalTextAlignment="Start"
-                                           FontSize="Large"/>
+                                           FontSize="Medium"/>
                                     <Label Text="{Binding endinicial}"
                                            HorizontalTextAlignment="Start"
-                                           FontSize="Medium"/>
+                                           FontSize="Small"/>
                                     <Label Text="Endereço final:"
                                            HorizontalTextAlignment="Start"
-                                           FontSize="Large"/>
+                                           FontSize="Medium"/>
                                     <Label Text="{Binding endfinal}"
                                            HorizontalTextAlignment="Start"
-                                           FontSize="Medium"/>
-                                    <Label Text="Horário de início:"
+                                           FontSize="Small"/>
+                                    <Label Text="Horário inicial:"
                                            HorizontalTextAlignment="Start"
-                                           FontSize="Large"/>
+                                           FontSize="Medium"/>
                                     <Label Text="{Binding datainicial}"
                                            HorizontalTextAlignment="Start"
-                                           FontSize="Medium"/>
+                                           FontSize="Small"/>
                                     <Label Text="Horário final:"
                                            HorizontalTextAlignment="Start"
-                                           FontSize="Large"/>
+                                           FontSize="Medium"/>
                                     <Label Text="{Binding datafinal}"
                                            HorizontalTextAlignment="Start"
-                                           FontSize="Medium"/>
-                                    <Label Text="KM percorridos:"
+                                           FontSize="Small"/>
+                                    <Label Text="KMs percorridos:"
                                            HorizontalTextAlignment="Start"
-                                           FontSize="Large"/>
+                                           FontSize="Medium"/>
                                     <Label Text="{Binding kmpercorridos}"
                                            HorizontalTextAlignment="Start"
-                                           FontSize="Medium"/>
-                                    <Label Text="Custo da viagem:"
+                                           FontSize="Small"/>
+                                    <Label Text="Custo da viagem (R$):"
                                            HorizontalTextAlignment="Start"
-                                           FontSize="Large"/>
+                                           FontSize="Medium"/>
                                     <Label Text="{Binding custo}"
                                            HorizontalTextAlignment="Start"
-                                           FontSize="Medium"/>
+                                           FontSize="Small"/>
                                 </StackLayout>
                             </ScrollView>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
-            <Button Text="Voltar" 
-                        TextColor="White"
-                        BackgroundColor="Blue" 
-                        Clicked="btnVoltar_ClickedAsync"
-                        BorderRadius="50"
-                        x:Name="btnVoltar"/>
+
+            <StackLayout>
+                <Entry Placeholder="Filtrar por data Ex: 31/12/2020"
+                           PlaceholderColor="Gray"
+                           BackgroundColor="White"
+                           Keyboard="Numeric"
+                           x:Name="txtFiltro">
+                    <Entry.Behaviors>
+                        <behavior:MaskedBehavior Mask="XX/XX/XXXX" />
+                    </Entry.Behaviors>
+                </Entry>
+                <Button Text="Aplicar filtro" 
+                            TextColor="White"
+                            BackgroundColor="Blue" 
+                            Clicked="btnFiltro_ClickedAsync"
+                            BorderRadius="50"
+                            Scale="0.95"
+                            x:Name="btnFiltro"/>
+
+                <Button Text="Voltar" 
+                            TextColor="White"
+                            BackgroundColor="Blue" 
+                            Clicked="btnVoltar_ClickedAsync"
+                            BorderRadius="50"
+                            Scale="0.95"
+                            x:Name="btnVoltar"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -30,28 +30,36 @@ namespace AppCar
 
         private async void BtnConfirmar(object sender, EventArgs e)
         {
-            try{
+            try
+            {
                 List<Models.Cadastro> cadastros = await ds.GetCadastroAsync(); //Lista com todos os cadastros
-                string result; //Mensagem a ser exibida
-                //Recebe os dados
-                string email = txtEmail.Text.Trim();
-                string cpf = txtCpf.Text.Trim();
-
-                result = controller.RecuperarLogin(email, cpf, cadastros);
-
-                var msg = System.Text.RegularExpressions.Regex.Split(result, ";"); //Faz a separação da mensagem em 3 strings
-                if (!msg[0].Equals("Erro"))
+                try
                 {
-                    string login = msg[0].Trim();
-                    await Navigation.PushAsync(new RedefinirSenha(login));
-                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                    string result; //Mensagem a ser exibida
+                                   //Recebe os dados
+                    string email = txtEmail.Text.Trim();
+                    string cpf = txtCpf.Text.Trim();
+
+                    result = controller.RecuperarLogin(email, cpf, cadastros);
+
+                    var msg = System.Text.RegularExpressions.Regex.Split(result, ";"); //Faz a separação da mensagem em 3 strings
+                    if (!msg[0].Equals("Erro"))
+                    {
+                        string login = msg[0].Trim();
+                        await Navigation.PushAsync(new RedefinirSenha(login));
+                        Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                    }
+                    else
+                        await DisplayAlert(msg[0], msg[1], msg[2]);
                 }
-                else
-                    await DisplayAlert(msg[0], msg[1], msg[2]);
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Erro:", "Campos vazios", "OK");
+                }
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Erro:", "Campos vazios", "OK");
+                await DisplayAlert("Erro:", "Sem conexão com a internet", "OK");
             }
         }
     }

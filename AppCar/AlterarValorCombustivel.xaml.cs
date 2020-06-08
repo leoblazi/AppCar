@@ -8,18 +8,29 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using AppCar.Service;
+using AppCar.Controllers;
 
 namespace AppCar
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AlterarValorCombustivel : ContentPage
     {
+        string user;
         CombustivelDataService ds;
         Models.Combustivel combustivel;
-        public AlterarValorCombustivel(Models.Combustivel combustivel)
+        CombustivelController controller;
+        public AlterarValorCombustivel(string login)
         {
+            user = login;
             ds = new CombustivelDataService();
-            this.combustivel = combustivel;
+            controller = new CombustivelController();
+            GetCombustivel();
+        }
+
+        private async void GetCombustivel()
+        {
+            List<Models.Combustivel> combustiveis = await ds.GetCombustivelAsync();
+            combustivel = controller.GetCombustivelByCadastro(combustiveis, user);
             InitializeComponent();
             txtEtanol.Text = combustivel.etanol.ToString("F");
             txtDiesel.Text = combustivel.diesel.ToString("F");
@@ -27,28 +38,22 @@ namespace AppCar
             txtOutro.Text = combustivel.outro.ToString("F");
         }
 
-        private async void btnAtualizarValores_Clicked(object sender, EventArgs e)
+            private async void btnAtualizarValores_Clicked(object sender, EventArgs e)
         {
             try
             {
                 //Recebe informações
-                Models.Combustivel novoCombustivel = new Models.Combustivel
-                {
-                    id = combustivel.id,
-                    login = combustivel.login.Trim(),
-                    diesel = float.Parse(txtDiesel.Text.Trim()),
-                    etanol = float.Parse(txtEtanol.Text.Trim()),
-                    gasolina = float.Parse(txtGasolina.Text.Trim()),
-                    outro = float.Parse(txtOutro.Text.Trim())
-                };
+                combustivel.diesel = float.Parse(txtDiesel.Text.Trim());
+                combustivel.etanol = float.Parse(txtEtanol.Text.Trim());
+                combustivel.gasolina = float.Parse(txtGasolina.Text.Trim());
+                combustivel.outro = float.Parse(txtOutro.Text.Trim());
 
                 if (combustivel.etanol < 0 || combustivel.diesel < 0 || combustivel.gasolina < 0 || combustivel.outro < 0)
                     await DisplayAlert("Erro", "O valor de um combustível não pode ser negativo", "OK");
                 else
                 {
-                    Console.WriteLine(novoCombustivel.id+novoCombustivel.login+novoCombustivel.diesel+novoCombustivel.etanol+novoCombustivel.gasolina+novoCombustivel.outro);
                     await DisplayAlert("Sucesso","Valores dos combustíveis alterados com sucesso!","OK");
-                    await ds.UpdateCombustivelAsync(novoCombustivel);
+                    await ds.UpdateCombustivelAsync(combustivel);
                     await Navigation.PushAsync(new Combustivel(combustivel.login.Trim()));
                     Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
                 }

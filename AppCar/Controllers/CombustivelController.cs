@@ -25,11 +25,6 @@ namespace AppCar.Controllers
             };
             AddCombustivel(combustivel); //Se não houver combustível cadastrado para o usuário, cadastra um novo combustível
 
-            for (int i = 0; i < combustiveis.Count; i++)
-            {
-                if (combustiveis[i].login.Trim().Equals(login))
-                    return combustiveis[i]; //Retorna o combustível do usuário
-            }
             return combustivel;
         }
         private async void AddCombustivel(Models.Combustivel combustivel)

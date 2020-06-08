@@ -89,8 +89,8 @@ namespace AppCar
                         carro = carro.placa.Trim(),
                         endinicial = txtEndinic.Text.Trim(),
                         endfinal = txtEndfinal.Text.Trim(),
-                        datainicial = tempoInicio,
-                        datafinal = DateTime.UtcNow
+                        datainicial = tempoInicio.AddHours(-3),
+                        datafinal = DateTime.UtcNow.AddHours(-3)
                     };
                 }
                 catch (Exception ex)
@@ -111,10 +111,10 @@ namespace AppCar
                     var distanciaPercorrida = distancia+Location.CalculateDistance(locationInic, locationFinal, DistanceUnits.Kilometers);
 
                     carro.status = "Parado";
-                    carro.kmatual += float.Parse((distanciaPercorrida).ToString());
+                    carro.kmatual += float.Parse((distanciaPercorrida).ToString("N3"));
                     await dsCarro.UpdateCarroAsync(carro);
 
-                    relatorio.kmpercorridos = float.Parse(distanciaPercorrida.ToString());
+                    relatorio.kmpercorridos = float.Parse(distanciaPercorrida.ToString("N3"));
 
                     List<Models.Combustivel> combustiveis = await dsCombustivel.GetCombustivelAsync();
                     Models.Combustivel combustivel = combController.GetCombustivelByCadastro(combustiveis, user);

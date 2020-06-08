@@ -33,7 +33,9 @@ namespace AppCar
             if (carros.Count > 0)
                 listaCarros.ItemsSource = carros.OrderBy(carros => carros.modelo).ToList(); //Manda os dados para a tela
             else
+            {
                 txtTitulo.Text = "Nenhum carro cadastrado";
+            }
         }
 
         private async void Veiculo_ClickedAsync(object sender, EventArgs e)

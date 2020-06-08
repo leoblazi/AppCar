@@ -38,7 +38,7 @@ namespace AppCar
 
         private async void BtnRelatorios_ClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Relatorios(user, carro));
+            await Navigation.PushAsync(new Relatorios(user, carro, ""));
             Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
@@ -50,7 +50,7 @@ namespace AppCar
 
         private async void btnExcluir_ClickedAsync(object sender, EventArgs e)
         {
-            var escolha = await DisplayActionSheet("Excluir carro?", "Sim", "Não");
+            var escolha = await DisplayActionSheet("Excluir veículo?", "Sim", "Não");
             if (escolha.Equals("Sim"))
             {
                 CarroController controller = new CarroController();

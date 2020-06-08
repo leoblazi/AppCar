@@ -21,6 +21,19 @@ namespace AppCar.Controllers
             return relatorios;
         }
 
+        public List<Models.Relatorio> GetRelatorioByData(List<Models.Relatorio> lRelatorios, Models.Carro carro, DateTime data)
+        {
+            List<Models.Relatorio> relatorios = new List<Models.Relatorio>();
+            for (int i = 0; i < lRelatorios.Count; i++)
+            {
+                if (lRelatorios[i].carro.Trim().Equals(carro.placa.Trim()) && lRelatorios[i].datainicial.Date==data)
+                {
+                    relatorios.Add(lRelatorios[i]); //Adiciona os relatórios que pertencerem ao carro e a data correspondente
+                }
+            }
+            return relatorios;
+        }
+
         public async void AddRelatorio(Models.Relatorio relatorio, Models.Combustivel combustivel, Models.Carro carro, int combustivelUtilizado)
         {
             switch (combustivelUtilizado)

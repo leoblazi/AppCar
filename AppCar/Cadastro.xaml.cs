@@ -34,37 +34,44 @@ namespace AppCar
             try
             {
                 List<Models.Cadastro> cadastros = await ds.GetCadastroAsync(); //Lista com todos os cadastros
-                string result; //Mensagem a ser exibida
-                
-                //Recebe informações
-                Models.Cadastro cadastro = new Models.Cadastro
+                try
                 {
-                    login = txtCadLogin.Text.Trim(),
-                    senha = txtCadSenha.Text.Trim(),
-                    nome = txtCadNome.Text.Trim(),
-                    email = txtCadEmail.Text.Trim(),
-                    cpf = txtCadCpf.Text.Trim()
-                };
-                string confsenha = txtConfSenha.Text.Trim();
+                    string result; //Mensagem a ser exibida
 
-                result = controller.Cadastro(cadastro, confsenha, cadastros);
+                    //Recebe informações
+                    Models.Cadastro cadastro = new Models.Cadastro
+                    {
+                        login = txtCadLogin.Text.Trim(),
+                        senha = txtCadSenha.Text.Trim(),
+                        nome = txtCadNome.Text.Trim(),
+                        email = txtCadEmail.Text.Trim(),
+                        cpf = txtCadCpf.Text.Trim()
+                    };
+                    string confsenha = txtConfSenha.Text.Trim();
 
-                var msg = System.Text.RegularExpressions.Regex.Split(result, ";"); //Faz a separação da mensagem em 3 strings
-                await DisplayAlert(msg[0], msg[1], msg[2]);
+                    result = controller.Cadastro(cadastro, confsenha, cadastros);
 
-                if (msg[0].Equals("Sucesso"))
+                    var msg = System.Text.RegularExpressions.Regex.Split(result, ";"); //Faz a separação da mensagem em 3 strings
+                    await DisplayAlert(msg[0], msg[1], msg[2]);
+
+                    if (msg[0].Equals("Sucesso"))
+                    {
+                        await ds.AddCadastroAsync(cadastro);
+                        //Adiciona os lembretes padrão ao cirar um novo perfil
+                        LembreteController lc = new LembreteController();
+                        lc.CriarLembretes(cadastro);
+
+                        Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+                    }
+                }
+                catch (Exception ex)
                 {
-                    await ds.AddCadastroAsync(cadastro);
-                    //Adiciona os lembretes padrão ao cirar um novo perfil
-                    LembreteController lc = new LembreteController();
-                    lc.CriarLembretes(cadastro);
-
-                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+                    await DisplayAlert("Erro:", "Preencha todos os campos", "OK");
                 }
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Erro:", "Preencha todos os campos", "OK");
+                await DisplayAlert("Erro:", "Sem conexão com a internet", "OK");
             }
         }
     }
