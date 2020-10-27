@@ -46,7 +46,7 @@ namespace AppCar
                     tipocombustivel = txtTipoCombustivel.Text.Trim(),
                     kmatual = float.Parse(txtKmAtual.Text.Trim()),
                     kmlitro = float.Parse(txtKmLitro.Text.Trim()),
-                    status = "Veiculo parado"
+                    status = "Parado"
                 };
 
                 result = controller.AdcionarVeiculo(carro, carros);
