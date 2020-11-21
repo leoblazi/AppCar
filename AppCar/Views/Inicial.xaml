@@ -34,7 +34,7 @@
                         BackgroundColor="Yellow"
                         Clicked="BtnCombustivel_ClickedAsync" 
                         BorderRadius="50"
-                        x:Name="btnValCombustivel"/>
+                        x:Name="btnValCombustivel"/> 
                 
                 <Button Text="Editar cadastro" 
                         TextColor="White" 

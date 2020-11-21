@@ -5,48 +5,48 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="AppCar.MainPage"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"><?Ocultando o nome da página no celular ?>
     <ScrollView>
         <StackLayout Padding="20" Spacing="20">
-            <Image Source="Logo.png"/>
-            
-            <Label Text="Seja bem-vindo"
-                   HorizontalTextAlignment="Center" 
-                   FontSize="Large"/>
+            <Image Source="Logo.png"/><?Imagem - android/resources/drawable ?>
+
+            <Label Text="Seja bem-vindo" 
+                   HorizontalTextAlignment="Center"  
+                   FontSize="Large"/><?label txt alinhado no centro ?>
             
             <Entry Placeholder="Login" 
                    PlaceholderColor="Gray" 
                    BackgroundColor="White"
                    MaxLength="20"
-                   x:Name="txtUsuario"/>
+                   x:Name="txtUsuario"/><?entry escrito login em cinza com fundo branco max caract 20 o que inserido vai para a variavel txtUsuario ?>
             
             <Entry Placeholder="Senha" 
                    PlaceholderColor="Gray" 
                    BackgroundColor="White" 
                    IsPassword="True"
                    MaxLength="20"
-                   x:Name="txtSenha"/>
+                   x:Name="txtSenha"/><?idem entretanto oculta a senha ?>
             
             <Button Text="Entrar"
                     TextColor="White"
                     BackgroundColor="Blue"
                     Clicked="BtnLogin_ClickedAsync"
                     BorderRadius="50"
-                    x:Name="btnEntrar"/>
+                    x:Name="btnEntrar"/> <?Trata a entrada no backend ?>
             
             <Button Text="Cadastre-se"
                     TextColor="White"
                     BackgroundColor="Blue"
-                    Clicked="BtnCadastrar_ClickedAsync"
+                    Clicked="BtnCadastrar_ClickedAsync" 
                     BorderRadius="50"
-                    x:Name="btnSair"/>
+                    x:Name="btnSair"/> <?Redireciona ?>
 
             <Button Text="Esqueci meus dados"
                     TextColor="White"
                     BackgroundColor="Gray"
                     Clicked="BtnEsqueci_ClickedAsync"
                     BorderRadius="50"
-                    x:Name="btnEsqueci"/>
+                    x:Name="btnEsqueci"/> <?Redireciona ?>
         </StackLayout>
     </ScrollView>
 

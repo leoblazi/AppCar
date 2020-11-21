@@ -66,7 +66,7 @@
                         BackgroundColor="Blue" 
                         Clicked="BtnVoltarCadastro_ClickedAsync"
                         BorderRadius="50"
-                        x:Name="btnCancCadastro"/>
+                        x:Name="btnCancCadastro"/><?Fecha a tela no backend ?>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -21,7 +21,7 @@ namespace AppCar
             InitializeComponent();
             ds = new CadastroDataService();
             controller = new CadastroController();
-        }
+        } //deixa em aberto para outras classes poderem acessar esta
 
         private void BtnVoltar(object sender, EventArgs e)
         {
@@ -35,7 +35,7 @@ namespace AppCar
                 List<Models.Cadastro> cadastros = await ds.GetCadastroAsync(); //Lista com todos os cadastros
                 try
                 {
-                    string result; //Mensagem a ser exibida
+                    string result; //Mensagem a ser exibida através do controller
                                    //Recebe os dados
                     string email = txtEmail.Text.Trim();
                     string cpf = txtCpf.Text.Trim();

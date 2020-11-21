@@ -11,6 +11,14 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="NovaPasta1\**" />
+    <Compile Remove="NovaPasta\**" />
+    <EmbeddedResource Remove="NovaPasta1\**" />
+    <EmbeddedResource Remove="NovaPasta\**" />
+    <None Remove="NovaPasta1\**" />
+    <None Remove="NovaPasta\**" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Xam.Plugin.ExternalMaps" Version="4.0.1" />
@@ -21,69 +29,69 @@
     <PackageReference Include="Xamarin.Forms.Maps" Version="4.5.0.356" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="CriarLembrete.xaml.cs">
+    <Compile Update="Views\CriarLembrete.xaml.cs">
       <DependentUpon>CriarLembrete.xaml</DependentUpon>
     </Compile>
-    <Compile Update="EditarLembrete.xaml.cs">
+    <Compile Update="Views\EditarLembrete.xaml.cs">
       <DependentUpon>EditarLembrete.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Lembretes.xaml.cs">
+    <Compile Update="Views\Lembretes.xaml.cs">
       <DependentUpon>Lembretes.xaml</DependentUpon>
     </Compile>
-    <Compile Update="EditarNome.xaml.cs">
+    <Compile Update="Views\EditarNome.xaml.cs">
       <DependentUpon>EditarNome.xaml</DependentUpon>
     </Compile>
-    <Compile Update="EditarSenha.xaml.cs">
+    <Compile Update="Views\EditarSenha.xaml.cs">
       <DependentUpon>EditarSenha.xaml</DependentUpon>
     </Compile>
-    <Compile Update="EditarLogin.xaml.cs">
+    <Compile Update="Views\EditarLogin.xaml.cs">
       <DependentUpon>EditarLogin.xaml</DependentUpon>
     </Compile>
-    <Compile Update="RedefinirSenha.xaml.cs">
+    <Compile Update="Views\RedefinirSenha.xaml.cs">
       <DependentUpon>RedefinirSenha.xaml</DependentUpon>
     </Compile>
-    <Compile Update="RecuperarLogin.xaml.cs">
+    <Compile Update="Views\RecuperarLogin.xaml.cs">
       <DependentUpon>RecuperarLogin.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="AdicionarVeiculo.xaml">
+    <EmbeddedResource Update="Views\AdicionarVeiculo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="AlterarValorCombustivel.xaml">
+    <EmbeddedResource Update="Views\AlterarValorCombustivel.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Cadastro.xaml">
+    <EmbeddedResource Update="Views\Cadastro.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Combustivel.xaml">
+    <EmbeddedResource Update="Views\Combustivel.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Lembretes.xaml">
+    <EmbeddedResource Update="Views\Lembretes.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="EditarCadastro.xaml">
+    <EmbeddedResource Update="Views\EditarCadastro.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="EditarVeiculo.xaml">
+    <EmbeddedResource Update="Views\EditarVeiculo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="FinalizaPercurso.xaml">
+    <EmbeddedResource Update="Views\FinalizaPercurso.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="GerenciarVeiculos.xaml">
+    <EmbeddedResource Update="Views\GerenciarVeiculos.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="GPS.xaml">
+    <EmbeddedResource Update="Views\GPS.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Inicial.xaml">
+    <EmbeddedResource Update="Views\Inicial.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Relatorios.xaml">
+    <EmbeddedResource Update="Views\Relatorios.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Veiculo.xaml">
+    <EmbeddedResource Update="Views\Veiculo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

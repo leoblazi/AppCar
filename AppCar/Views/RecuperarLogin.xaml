@@ -39,7 +39,7 @@
                     BackgroundColor="Blue"
                     Clicked="BtnVoltar"
                     BorderRadius="50"
-                    x:Name="btnVoltar"/>
+                    x:Name="btnVoltar"/><?Redireciona?>
         </StackLayout>
     </ScrollView>
 

@@ -19,7 +19,7 @@ namespace AppCar.Controllers
             if (!cadastro.senha.Equals(confsenha))
                 return "Erro;As senhas digitadas não coincidem;OK";
 
-            //Verifica se a placa contém todos os caracteres
+            //Verifica se a cpf contém todos os caracteres
             if (cadastro.cpf.Trim().Length < 11)
                 return "Erro;O CPF deve conter todos os caracteres;OK";
 
@@ -127,7 +127,7 @@ namespace AppCar.Controllers
             return "Sucesso;Senha alterada com sucesso!;OK"; //Se passar por todas as verificações, retorna uma mensagem de "sucesso"
         }
 
-        public string Login(string login, string senha, List<Models.Cadastro> cadastros)
+        public string Login(string login, string senha, List<Models.Cadastro> cadastros) //Controle da validação da tela MainPage na entrada do login
         {
             //Verifica se há campos vazios
             if (login.Equals("") || senha.Equals(""))
@@ -158,7 +158,7 @@ namespace AppCar.Controllers
                     cadastro = cadastros[i];
             }
             return cadastro;
-        }
+        } //Faz a varredura e atualiza as informações como nome, senha e login
 
         public string RecuperarLogin(string email, string cpf, List<Models.Cadastro> cadastros)
         {

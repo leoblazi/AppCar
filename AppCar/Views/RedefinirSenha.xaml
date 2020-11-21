@@ -45,7 +45,7 @@
                     BackgroundColor="Blue"
                     Clicked="BtnVoltar"
                     BorderRadius="50"
-                    x:Name="btnVoltar"/>
+                    x:Name="btnVoltar"/><?Apaga a tela aberta somente?>
         </StackLayout>
     </ScrollView>
 

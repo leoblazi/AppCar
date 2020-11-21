@@ -39,7 +39,7 @@ namespace AppCar
             Models.Lembrete lembrete = (Models.Lembrete)btn.CommandParameter; //Recebe o lembrete correspondente ao botão
             await Navigation.PushAsync(new EditarLembrete(user, lembrete));
             Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-        }
+        }//apresenta o lembrete e direciona para a segunda tela para edição/exclusão
 
         private async void btnCriarLembrete(object sender, EventArgs e)
         {

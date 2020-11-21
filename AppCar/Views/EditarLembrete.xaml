@@ -4,19 +4,18 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="AppCar.CriarLembrete">
+             x:Class="AppCar.EditarLembrete">
     <ContentPage.Content>
         <StackLayout>
-            <Image Source="Logo.png"/>
-            
-            <Label Text="Novo lembrete"
+            <Image Source="Logo.png"/> 
+
+            <Label Text="Editar lembrete"
                    HorizontalTextAlignment="Center"
                    x:Name="txtTitulo"
                    FontSize="Large"/>
 
             <Entry PlaceholderColor="Gray"
                    BackgroundColor="White"
-                   VerticalOptions="CenterAndExpand"
                    MaxLength="100"
                    x:Name="txtLembrete"/>
 
@@ -27,7 +26,14 @@
                     Clicked="Salvar_ClickedAsync"
                     x:Name="btnSalvar"/>
 
-            <Button Text="Voltar"
+            <Button Text="Excluir lembrete"
+                    TextColor="White"
+                    BackgroundColor="Blue"
+                    BorderRadius="50"
+                    Clicked="Excluir_ClickedAsync"
+                    x:Name="btnExcluir"/>
+
+            <Button Text="Voltar" 
                     TextColor="White"
                     BackgroundColor="Blue" 
                     Clicked="btnVoltar_ClickedAsync"

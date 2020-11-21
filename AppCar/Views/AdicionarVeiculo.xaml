@@ -13,7 +13,7 @@
 
                 <Label Text="Cadastre seu veículo!"
                        HorizontalTextAlignment="Center"
-                       FontSize="Medium"/>
+                       FontSize="Medium"/> 
 
                 <Entry Placeholder="Modelo"
                        PlaceholderColor="Gray"

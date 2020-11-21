@@ -35,10 +35,10 @@ namespace AppCar
 
         private async void Excluir_ClickedAsync(object sender, EventArgs e)
         {
-            await ds.DeleteLembreteAsync(lembrete);
             var escolha = await DisplayActionSheet("Excluir lembrete?", "Sim", "Não");
             if (escolha.Equals("Sim"))
             {
+                await ds.DeleteLembreteAsync(lembrete);
                 await DisplayAlert("Sucesso", "Lembrete excluido com sucesso!", "OK");
                 await Navigation.PushAsync(new Lembretes(user));
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);

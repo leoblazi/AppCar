@@ -36,7 +36,7 @@
                                             BorderRadius="50" 
                                             Clicked="Veiculo_ClickedAsync"
                                             CommandParameter="{Binding .}"
-                                            x:Name="btnSelecionar1"/>
+                                            x:Name="btnSelecionar1"/> 
                                 </StackLayout>
                             </ScrollView>
                         </ViewCell>

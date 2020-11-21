@@ -4,25 +4,35 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="AppCar.EditarNome">
+             x:Class="AppCar.EditarLogin">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="20" Padding="20">
                 <Image Source="logocad.png"/>
+                <?Atualiza o Login?>
+                <Label Text="Alterar login"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Large"/>
 
-                <Label Text="Alterar Nome"
-                        HorizontalTextAlignment="Center"
-                        FontSize="Large"/>
-
-                <Label Text="Novo Nome:"
+                <Label Text="Novo login:"
                        HorizontalTextAlignment="Start"
                        FontSize="Medium"/>
-                <Entry Placeholder="Novo nome" 
+                <Entry Placeholder="Novo login" 
                        PlaceholderColor="Gray"
                        BackgroundColor="White"
                        MaxLength="20"
-                    x:Name="txtNome"/>
-                
+                       x:Name="txtLogin"/>
+
+                <Label Text="Confirmar senha:"
+                       HorizontalTextAlignment="Start"
+                       FontSize="Medium"/>
+                <Entry Placeholder="Senha"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       MaxLength="20"
+                       IsPassword="True"
+                       x:Name="txtSenha"/>
+
                 <Button Text="Salvar"
                         TextColor="White"
                         BackgroundColor="Blue"

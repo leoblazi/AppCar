@@ -13,7 +13,7 @@
                 <Label Text="20 KM percorridos"
                        FontSize="Large"
                        HorizontalTextAlignment="Center"
-                       x:Name="txtKmpercorridos"/>
+                       x:Name="txtKmpercorridos"/> 
                 <Label Text="Você gastou:"
                        FontSize="Medium"
                        HorizontalTextAlignment="Center"/>

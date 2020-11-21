@@ -9,7 +9,7 @@
         <ScrollView>
             <StackLayout Spacing="20" Padding="20">
                 <Image Source="Logo.png"/>
-
+                <?Tudo nesta somente redireciona para outra?>
                 <Label Text="Editar cadastro"
                        HorizontalTextAlignment="Center"
                        FontSize="Medium"

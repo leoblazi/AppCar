@@ -22,7 +22,7 @@
                                 <StackLayout Spacing="20" Padding="20">
                                     <Label Text="{Binding lembrete}"
                                            HorizontalTextAlignment="Start"
-                                           FontSize="Medium"/>
+                                           FontSize="Medium"/><?Apresenta todos os lembretes conforme o cliente?>
 
                                     <Button Text="Editar Lembrete"
                                             FontSize="Small"
@@ -31,7 +31,7 @@
                                             BorderRadius="50"
                                             Clicked="Editar_ClickedAsync"
                                             CommandParameter="{Binding .}"
-                                            x:Name="btnSelecionar"/>
+                                            x:Name="btnSelecionar"/> <?Gera esta opção para cada lembrete disponivel?>
                                 </StackLayout>
                             </ScrollView>
                         </ViewCell>

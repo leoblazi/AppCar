@@ -67,6 +67,7 @@ namespace AppCar
         private async void btnVoltar_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Combustivel(combustivel.login.Trim()));
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
     }
 }

@@ -59,14 +59,14 @@ namespace AppCar
             {
                 try
                 {
-                    var locator = CrossGeolocator.Current;
-                    locator.DesiredAccuracy = 50;
-                    var position = await locator.GetPositionAsync(timeout: new TimeSpan(0, 0, 10));
+                    var locator = CrossGeolocator.Current; //Variavel que vai atribuir Localização atual
+                    locator.DesiredAccuracy = 50; //Precisão 50mt
+                    var position = await locator.GetPositionAsync(timeout: new TimeSpan(0, 0, 10)); //Pega posição do celular
                     iniciado = true;
                     btnIniciarFinalizarPercurso.Text = "Finalizar Percurso";
                     btnIniciarFinalizarPercurso.BackgroundColor = Color.Red;
                     carro.status = "Em movimento";
-                    await dsCarro.UpdateCarroAsync(carro);
+                    await dsCarro.UpdateCarroAsync(carro); //atualizando o status do carro
                     txtStatus.Text = "Status:" + carro.status;
                     txtStatus.TextColor = Color.Red;
                     tempoInicio = DateTime.UtcNow;
@@ -136,7 +136,7 @@ namespace AppCar
             try
             {
                 var locator = CrossGeolocator.Current;
-                locator.DesiredAccuracy = 30;
+                locator.DesiredAccuracy = 30; //Precisão
                 var position = await locator.GetPositionAsync(timeout: new TimeSpan(0, 0, 30));
                 var latitude = position.Latitude;
                 var longitude = position.Longitude;
@@ -145,10 +145,10 @@ namespace AppCar
                 {
                     Location locationInic = new Location(latitudeInicial, longitudeInicial);
                     Location locationFinal = new Location(latitude, longitude);
-                    distancia += Location.CalculateDistance(locationInic, locationFinal, DistanceUnits.Kilometers);
+                    distancia += Location.CalculateDistance(locationInic, locationFinal, DistanceUnits.Kilometers); //calcula a distancia entre o I e o F
                     latitudeInicial = latitude;
                     longitudeInicial = longitude;
-                    txtKmatual.Text = "KM Atual: " + Math.Round((carro.kmatual+distancia), 3).ToString() + "KM";
+                    txtKmatual.Text = "KM Atual: " + Math.Round((carro.kmatual+distancia), 3).ToString() + "KM"; //soma ao km atual (só coloca na tela)
                     CalculaDistancia();
                 }
             }

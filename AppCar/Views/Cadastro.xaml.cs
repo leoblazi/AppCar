@@ -57,7 +57,7 @@ namespace AppCar
                     if (msg[0].Equals("Sucesso"))
                     {
                         await ds.AddCadastroAsync(cadastro);
-                        //Adiciona os lembretes padrão ao cirar um novo perfil
+                        //Adiciona os lembretes padrão ao criar um novo perfil
                         LembreteController lc = new LembreteController();
                         lc.CriarLembretes(cadastro);
 
