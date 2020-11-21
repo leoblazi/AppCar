@@ -137,7 +137,7 @@ namespace AppCar
             {
                 var locator = CrossGeolocator.Current;
                 locator.DesiredAccuracy = 30; //Precisão
-                var position = await locator.GetPositionAsync(timeout: new TimeSpan(0, 0, 30));
+                var position = await locator.GetPositionAsync(timeout: new TimeSpan(0, 0, 30)); //Atualiza de 30 em 30 segundos
                 var latitude = position.Latitude;
                 var longitude = position.Longitude;
 

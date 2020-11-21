@@ -68,7 +68,7 @@
             </ListView>
 
             <StackLayout>
-                <Entry Placeholder="Filtrar por data Ex: 31/12/2020"
+                <Entry Placeholder="Filtrar por data (mm/dd/aaaa)"
                            PlaceholderColor="Gray"
                            BackgroundColor="White"
                            Keyboard="Numeric"
