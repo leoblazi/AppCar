@@ -73,7 +73,7 @@ namespace AppCar
                     latitudeInicial = position.Latitude;
                     longitudeInicial = position.Longitude;
                     CalculaDistancia();
-                    await CrossExternalMaps.Current.NavigateTo("", latitudeFinal, longitudeFinal);
+                    await CrossExternalMaps.Current.NavigateTo("", latitudeFinal, longitudeFinal); //acessa o mapa padrão
                 }
                 catch (Exception ex)
                 {
@@ -100,9 +100,9 @@ namespace AppCar
                 try
                 {
                     finalizado = true;
-                    var locator = CrossGeolocator.Current;
-                    locator.DesiredAccuracy = 50;
-                    var position = await locator.GetPositionAsync(timeout: new TimeSpan(0, 0, 10));
+                    var locator = CrossGeolocator.Current; //Variavel que vai atribuir Localização atual
+                    locator.DesiredAccuracy = 50; //Precisão 50mt
+                    var position = await locator.GetPositionAsync(timeout: new TimeSpan(0, 0, 10)); //Pega posição do celular
                     latitudeFinal = position.Latitude;
                     longitudeFinal = position.Longitude;
 
@@ -111,12 +111,12 @@ namespace AppCar
                     var distanciaPercorrida = distancia+Location.CalculateDistance(locationInic, locationFinal, DistanceUnits.Kilometers);
 
                     carro.status = "Parado";
-                    carro.kmatual += float.Parse((distanciaPercorrida).ToString("N3"));
-                    await dsCarro.UpdateCarroAsync(carro);
+                    carro.kmatual += float.Parse((distanciaPercorrida).ToString("N3")); //3 casas decimais - Soma e iguala ao kmatual
+                    await dsCarro.UpdateCarroAsync(carro); //atualiza os valores do carro no banco
 
-                    relatorio.kmpercorridos = float.Parse(distanciaPercorrida.ToString("N3"));
+                    relatorio.kmpercorridos = float.Parse(distanciaPercorrida.ToString("N3")); //insere no relatório o valores
 
-                    List<Models.Combustivel> combustiveis = await dsCombustivel.GetCombustivelAsync();
+                    List<Models.Combustivel> combustiveis = await dsCombustivel.GetCombustivelAsync(); 
                     Models.Combustivel combustivel = combController.GetCombustivelByCadastro(combustiveis, user);
 
                     relController.AddRelatorio(relatorio, combustivel, carro, combustivelUtilizado);
@@ -135,7 +135,7 @@ namespace AppCar
         {
             try
             {
-                var locator = CrossGeolocator.Current;
+                var locator = CrossGeolocator.Current; //Pega posição do celular
                 locator.DesiredAccuracy = 30; //Precisão
                 var position = await locator.GetPositionAsync(timeout: new TimeSpan(0, 0, 30)); //Atualiza de 30 em 30 segundos
                 var latitude = position.Latitude;
