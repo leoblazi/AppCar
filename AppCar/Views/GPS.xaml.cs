@@ -119,7 +119,7 @@ namespace AppCar
                     List<Models.Combustivel> combustiveis = await dsCombustivel.GetCombustivelAsync(); 
                     Models.Combustivel combustivel = combController.GetCombustivelByCadastro(combustiveis, user);
 
-                    relController.AddRelatorio(relatorio, combustivel, carro, combustivelUtilizado);
+                    relController.AddRelatorio(relatorio, combustivel, carro, combustivelUtilizado); //instância para calcular o custo
 
                     await Navigation.PushAsync(new FinalizaPercurso(user, carro, relatorio));
                     Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
